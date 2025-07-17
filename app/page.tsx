@@ -1,5 +1,12 @@
+import ContactSection from "@/components/home/ContactSection";
 import Hero from "@/components/home/Hero";
-import PlumbingIntro from "@/components/layout/PlumberIntroSection";
+import InfoSection from "@/components/home/InfoSection";
+import PlumbingIntro from "@/components/home/PlumberIntroSection";
+import ProductGallery from "@/components/home/ProdcutsGallery";
+import ProjectSection from "@/components/home/ProjectSection";
+import ServiceSection from "@/components/home/ServiceSection";
+import Testimonials from "@/components/home/Testimonials";
+import StatsCard from "@/components/StatsCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -30,6 +37,13 @@ export default function Home() {
       {/* Hero principal avec image et stats */}
       <Hero />
       <PlumbingIntro />
+      <ServiceSection />
+      <ProjectSection />
+      <InfoSection/>
+      <ContactSection />
+      <StatsCard />
+      <Testimonials />
+      <ProductGallery />
     </main>
   );
 }

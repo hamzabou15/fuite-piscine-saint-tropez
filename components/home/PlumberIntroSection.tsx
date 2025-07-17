@@ -7,10 +7,10 @@ import { Button } from "../ui/button";
 
 export default function PlumbingIntro() {
     return (
-        <section className="bg-white py-40">
-            <div className="container mx-auto px-12 flex  items-center gap-40 justify-between">
+        <section className="bg-white h-auto py-40">
+            <div className="container h-auto mx-auto px-16 flex  items-center gap-40 justify-between">
                 {/* Texte côté gauche */}
-                <div className="w-[45%]">
+                <div className="w-[40%]">
                     <p className="uppercase text-sm text-gray-600 font-semibold tracking-widest mb-2 ">
                         Plombier à Nice - Dépannage rapide
                     </p>
@@ -43,7 +43,7 @@ export default function PlumbingIntro() {
                 </div>
 
                 {/* Image côté droit */}
-                <div className="relative w-[50%] h-[500px]">
+                <div className="relative w-[35%] h-[400px]">
                     <Image
                         src="/images/plombier-nice.Webp"
                         alt="Plombier professionnel à Nice"
@@ -54,7 +54,7 @@ export default function PlumbingIntro() {
                     <Image
                         src="/images/plombier-expert-nice.webp"
                         alt="Plombier professionnel à Nice"
-                        className="absolute inset-0 w-full h-full object-cover left-[-80px] top-10 "
+                        className="absolute inset-0 w-full h-full object-cover left-[-200px] top-8 "
                         width={600}
                         height={500}
                     />
