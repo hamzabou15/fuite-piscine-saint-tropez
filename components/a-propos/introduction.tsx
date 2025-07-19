@@ -3,7 +3,7 @@ import React from 'react'
 const Introduction = () => {
     return (
         <section className="">
-            <div className="space-y-10  mx-auto px-16 max-md:px-6">
+            <div className="space-y-10  mx-auto">
                 <h2 className="text-4xl font-extrabold max-md:text-3xl">
                     Une équipe réactive pour vos dépannages urgents à Nice
                 </h2>

@@ -5,7 +5,7 @@ export default function InfoSection() {
     return (
         <section className="bg-[#f7f9fa] py-16 px-16 max-sm:px-6   ">
             <div className="max-w-7xl mx-auto text-[#1b1e3f]">
-            <div className="space-y-10  mx-auto px-16 max-md:px-6">
+            <div className="space-y-10  mx-auto">
                     <h2 className="text-4xl font-extrabold max-md:text-3xl">
                         Une équipe réactive pour vos dépannages urgents à Nice
                     </h2>

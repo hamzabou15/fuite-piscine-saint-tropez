@@ -34,13 +34,20 @@ export default function Header() {
 
     return (
         <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
-            <div className="max-w-6xl mx-auto px-16 max-md:px-6 py-3 flex items-center justify-between">
-                <Image 
+            <div className="max-w-6xl mx-auto px-16 max-md:px-6 pl-0 py-3 flex items-center justify-between">
+                <Image
                     src="/images/logo.png"
                     alt="Logo Plombier Nice Expert"
                     width={200}
                     height={50}
-                    className=""
+                    className="max-md:hidden"
+                />
+                <Image
+                    src="/images/logoV2.png"
+                    alt="Logo Plombier Nice Expert"
+                    width={50}
+                    height={50}
+                    className="md:hidden "
                 />
 
                 <div className="md:hidden">
@@ -58,9 +65,12 @@ export default function Header() {
                         </NavigationMenuItem>
 
                         <NavigationMenuItem>
-                            <NavigationMenuTrigger className="hover:text-[#13727B]">
-                                Services
-                            </NavigationMenuTrigger>
+                            <NavigationMenuLink asChild className="hover:text-[#13727B] transition">
+                                <NavigationMenuTrigger className="hover:text-[#13727B]">
+                                    <Link href="/services">Services</Link>
+                                </NavigationMenuTrigger>
+                            </NavigationMenuLink>
+
                             <NavigationMenuContent className="bg-[#1b1e3f] text-white rounded-sm shadow-lg p-4 grid gap-2" style={{ width: "300px" }}>
                                 {services.map((item) => (
                                     <NavigationMenuLink
@@ -105,10 +115,15 @@ export default function Header() {
                     <details className="group">
                         <summary className="cursor-pointer text-[#1b1e3f] hover:text-[#13727B]">Services</summary>
                         <div className="mt-2 pl-4 space-y-2">
+                            <Link href={"/services"} className="block text-[#13727B] hover:text-[#13727B]">
+                                Tous Les Services
+                            </Link>
                             {services.map((item) => (
-                                <Link key={item.href} href={item.href} className="block text-[#1b1e3f] hover:text-[#13727B]">
-                                    {item.title}
-                                </Link>
+                                <>
+                                    <Link key={item.href} href={item.href} className="block text-[#1b1e3f] hover:text-[#13727B]">
+                                        {item.title}
+                                    </Link>
+                                </>
                             ))}
                         </div>
                     </details>

@@ -59,7 +59,7 @@ export default function Testimonials() {
     }
 
     return (
-        <section className="w-full py-16 bg-white relative overflow-hidden">
+        <section className="w-full py-16 bg-white relative overflow-hidden px-16 max-md:px-6">
             <div className="text-center mb-12">
                 <p className="text-sm tracking-widest text-gray-500 uppercase">Témoignages</p>
                 <h2 className="text-4xl font-bold text-gray-900 mt-2">

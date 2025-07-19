@@ -75,8 +75,8 @@ export default function ProjectSection() {
     const stopDrag = () => setIsDragging(false);
 
     return (
-        <section className="bg-[#f7f9fa] px-16 max-sm:px-6  ">
-            <div className="max-w-6xl mx-auto">
+        <section className="bg-[#f7f9fa] px-16 max-md:px-6 ">
+            <div className="max-w-6xl mx-auto mb-10">
                 <div className="flex justify-between items-center mb-6">
                     <div className="flex flex-col gap-4">
                         <p className="uppercase text-sm tracking-widest text-gray-500 font-medium">

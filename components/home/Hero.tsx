@@ -33,7 +33,7 @@ export default function Hero() {
                     </div>
 
                     {/* Texte principal */}
-                    <div className="w-full md:w-1/2 text-center md:text-left pr-12 ">
+                    <div className="w-full md:w-1/2 text-center md:text-left pr-12 max-md:px-4 ">
                         <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4 text-[#222626]">
                             Interventions rapides à Nice <br />
                             par un plombier expérimenté

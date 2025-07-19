@@ -58,7 +58,7 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="mt-4 w-fit px-6 py-2 bg-[#13727B] text-white font-semibold rounded hover:bg-[#0e5a61] transition col-span-2"
+          className="mt-4 mx-auto w-fit px-6 py-2 bg-[#13727B] text-white font-semibold rounded hover:bg-[#0e5a61] transition col-span-2"
         >
           Obtenir un diagnostic
         </button>

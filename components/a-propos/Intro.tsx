@@ -42,9 +42,9 @@ export default function Intro() {
                     <p className="text-sm text-gray-600 mb-8 max-md:text-center">
                         Intervention express sur Nice et alentours : devis gratuit, tarifs transparents, et service client à votre écoute.
                     </p>
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-6 max-sm:flex-col">
                         <Link href="/a-propos">
-                            <Button size={"lg"} variant="default" className="bg-[#13727B] text-white hover:bg-[#0e5a5f]">
+                            <Button size={"lg"} variant="submit" >
                                 En savoir plus
                             </Button>
                         </Link>

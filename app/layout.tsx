@@ -5,6 +5,7 @@ import { Montserrat } from "next/font/google";
 import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import CTA from "@/components/layout/CTA";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -57,7 +58,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-white text-[#1b1e3f]">
         <Header />
-
+        <CTA />
         {children}
         <Footer />
       </body>

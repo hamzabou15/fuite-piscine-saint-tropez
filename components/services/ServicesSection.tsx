@@ -4,15 +4,16 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { services } from "@/lib/service";
+import { Button } from "../ui/button";
 
 
 export default function ServicesSection() {
   return (
     <section className="w-full py-20 bg-white text-center flex flex-col items-center">
-      <p className="text-sm font-medium text-gray-600 tracking-widest uppercase  max-w-7xl text-center Xl:m-auto">
+      <p className="text-sm max-md:text-[12px] max-md:text-center font-medium text-gray-600 tracking-widest uppercase  max-w-7xl text-center Xl:m-auto">
         Plomberie – Chauffage – Climatisation à Nice
       </p>
-      <h2 className="text-4xl font-bold text-[#1b1e3f] mb-12 max-w-7xl text-center">
+      <h2 className="text-4xl max-sm:text-2xl font-bold text-[#1b1e3f] mb-12 max-w-7xl text-center">
         Nos services de plomberie à Nice et ses environs
       </h2>
 
@@ -36,12 +37,11 @@ export default function ServicesSection() {
               <p className="text-gray-600 text-base leading-relaxed mb-4">
                 {service.description}
               </p>
-              <button
-                aria-label={`En savoir plus sur ${service.title}`}
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100 hover:cursor-pointer transition-colors"
-              >
-                <ArrowRight className="w-5 h-5 text-gray-700" />
-              </button>
+                <Link href="/a-propos">
+                            <Button size={"lg"} variant="submit" >
+                                En savoir plus
+                            </Button>
+                        </Link>
             </div>
           </Link>
         ))}

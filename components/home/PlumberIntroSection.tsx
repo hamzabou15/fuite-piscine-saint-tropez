@@ -7,10 +7,10 @@ import { Button } from "../ui/button";
 
 export default function PlumbingIntro() {
     return (
-        <section className=" h-auto py-40  max-w-7xl mx-auto ">
-            <div className="container h-auto mx-auto flex  items-center gap-40 justify-between">
+        <section className=" h-auto py-40  max-w-7xl mx-auto px-16 max-md:px-6 ">
+            <div className="container h-auto mx-auto flex  items-center gap-40 justify-between max-lg:flex-col ">
                 {/* Texte côté gauche */}
-                <div className="w-[40%]">
+                <div className="w-[40%] max-lg:w-full">
                     <p className="uppercase text-sm text-gray-600 font-semibold tracking-widest mb-2 ">
                         Plombier à Nice - Dépannage rapide
                     </p>
@@ -24,9 +24,9 @@ export default function PlumbingIntro() {
                     <p className="text-sm text-gray-600 mb-8">
                         Intervention express sur Nice et alentours : devis gratuit, tarifs transparents, et service client à votre écoute.
                     </p>
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-6 max-sm:flex-col">
                         <Link href="/a-propos">
-                            <Button size={"lg"} variant="default" className="bg-[#13727B] text-white hover:bg-[#0e5a5f]">
+                            <Button size={"lg"} variant="submit" >
                                 En savoir plus
                             </Button>
                         </Link>
@@ -43,18 +43,18 @@ export default function PlumbingIntro() {
                 </div>
 
                 {/* Image côté droit */}
-                <div className="relative w-[35%] h-[400px]">
+                <div className="relative w-[35%] h-[400px] max-lg:w-full max-lg:flex max-lg:flex-col  max-lg:gap-10 max-lg:h-auto">
                     <Image
                         src="/images/plombier-nice.Webp"
                         alt="Plombier professionnel à Nice"
-                        className="object-cover w-full h-full  mt-[-60px] "
+                        className="object-cover w-full h-full  mt-[-60px]  max-lg:mt-0 max-lg:h-[500px]"
                         width={600}
                         height={500}
                     />
                     <Image
                         src="/images/plombier-expert-nice.webp"
                         alt="Plombier professionnel à Nice"
-                        className="absolute inset-0 w-full h-full object-cover left-[-200px] top-8 "
+                        className="absolute inset-0 w-full h-full object-cover left-[-200px] max-lg:h-[500px] top-8 max-lg:relative max-lg:top-0  max-lg:left-0   "
                         width={600}
                         height={500}
                     />
