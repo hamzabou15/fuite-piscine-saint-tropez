@@ -27,12 +27,12 @@ const services = [
 
 export default function ServiceSection() {
   return (
-    <section className="bg-[#f7f9fa] py-16 px-4">
+    <section className="bg-[#f7f9fa] py-16 px-16 max-sm:px-6 ">
       <div className="max-w-6xl mx-auto text-center">
         <p className="uppercase text-sm tracking-widest text-gray-500 font-medium mb-2">
           Nos services
         </p>
-        <h2 className="text-4xl font-extrabold text-[#1b1e3f] mb-12">
+        <h2 className="text-4xl font-extrabold max-md:text-3xl text-[#1b1e3f] mb-12">
           Plombier Expert à Nice 24/7
         </h2>
 

@@ -13,35 +13,34 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Plombier Nice Expert | Dépannage rapide 24h/7j",
+export const metadata = {
+  title: "Plombier à Nice – Dépannage rapide et efficace | PlombierNice Expert",
   description:
-    "Besoin d’un plombier à Nice ? Intervention rapide 24h/7j pour fuites, débouchages, chauffe-eau. Devis gratuit. Plombier Nice Expert est là pour vous aider !",
-  metadataBase: new URL("https://plombiernice-expert.fr"),
+    "Plombier professionnel à Nice : dépannage en urgence, détection de fuites, débouchage, rénovation de salle de bains. Devis gratuit 7j/7 !",
   keywords: [
-    "Plombier Nice",
-    "Dépannage plomberie Nice",
-    "Urgence fuite d’eau Nice",
-    "Installation chauffe-eau Nice",
-    "Plomberie 24h/24 Nice",
+    "plombier Nice",
+    "urgence plomberie Nice",
+    "chauffe-eau Nice",
+    "débouchage canalisation Nice",
+    "rénovation salle de bains Nice",
   ],
-  robots: "index, follow",
   openGraph: {
-    title: "Plombier Nice Expert | Dépannage rapide 24h/7j",
+    title: "Plombier à Nice – Dépannage rapide et efficace | PlombierNice Expert",
     description:
-      "Fuite d’eau ? Chauffe-eau en panne ? Plombier Nice Expert intervient rapidement pour tous vos besoins en plomberie à Nice et alentours.",
-    url: "https://plombiernice-expert.fr",
-    siteName: "Plombier Nice Expert",
+      "Interventions express à Nice : fuite d’eau, débouchage, chauffe-eau, rénovation de salle de bains. Contactez un artisan local fiable.",
+    url: "https://plombiernice-expert.fr/",
+    siteName: "PlombierNice Expert",
+    images: [
+      {
+        url: "/images/plombier-nice-hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "Plombier professionnel à Nice",
+      },
+    ],
     locale: "fr_FR",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Plombier Nice Expert",
-    description:
-      "Intervention rapide en plomberie à Nice. Fuites, débouchages, chauffe-eau… Devis gratuit 24h/24.",
-  },
-  themeColor: "#f25000",
 };
 
 export default function RootLayout({

@@ -5,15 +5,15 @@ import { motion } from 'framer-motion';
 
 const StatsCard = () => {
     const stats = [
-        { value: 920, label: 'Interventions plomberie réalisées à Nice' },
-        { value: 85, label: 'Fuites d’eau détectées et réparées rapidement' },
-        { value: 25, label: 'Plombiers experts qualifiés à votre service' },
-        { value: 3, label: 'Quartiers et villes desservis autour de Nice' },
+        { value: 920, label: 'Interventions' },
+        { value: 585, label: 'Client satisfaits' },
+        { value: 25, label: "ans d'expertise" },
+        { value: 981, label: 'Projets' },
     ];
 
     return (
         <section
-            className='bg-white w-full px-16 max-sm:px-6  h-auto py-12 xl:max-w-[1300px] m-auto'
+            className='w-full h-auto py-12 xl:max-w-[1300px] m-auto'
             id="chiffres-plomberie-nice"
             aria-label="Statistiques sur les interventions de plomberie à Nice"
         >
@@ -89,27 +89,27 @@ const StatItem = ({
     return (
         <div
             ref={ref}
-            className={`flex flex-col mx-auto w-[25%] items-center gap-3 px-6 py-6 ${
-                !isLast
-                    ? 'border-l-[2px] border-[#d8d8d8] border-dashed max-lg:w-[50%] max-sm:w-[100%] max-sm:border-0'
-                    : ''
-            }`}
+            className={`flex flex-col mx-auto w-[25%] items-center gap-3 px-6 py-6 ${!isLast
+                ? ' max-lg:w-[50%] max-sm:w-[100%] '
+                : ''
+                }`}
         >
-            <motion.h1
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isVisible ? 1 : 0 }}
-                transition={{ duration: 0.5 }}
-                className='text-[110px] leading-24 m-0 font-semibold text-[#e8e8e8] max-lg:text-[92px]'
-                aria-label={`${count} ${label}`}
-            >
-                {count}
-            </motion.h1>
+
             <span
                 className='text-[18px] font-semibold text-center text-[#1b1e3f] max-lg:text-base'
                 aria-live="polite"
             >
                 {label}
             </span>
+            <motion.h1
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isVisible ? 1 : 0 }}
+                transition={{ duration: 0.5 }}
+                className='text-[60px] leading-24 m-0 font-semibold text-[#222626] max-lg:text-[92px]'
+                aria-label={`${count} ${label}`}
+            >
+                {count}
+            </motion.h1>
         </div>
     );
 };

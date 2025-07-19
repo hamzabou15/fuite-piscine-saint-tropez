@@ -5,45 +5,57 @@ import PlumbingIntro from "@/components/home/PlumberIntroSection";
 import ProductGallery from "@/components/home/ProdcutsGallery";
 import ProjectSection from "@/components/home/ProjectSection";
 import ServiceSection from "@/components/home/ServiceSection";
-import Testimonials from "@/components/home/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import StatsCard from "@/components/StatsCard";
 import type { Metadata } from "next";
+import LocalBusinessSchema from "@/components/SEO/LocalBusiness";
 
-export const metadata: Metadata = {
-  title: "Plombier Nice Expert – Dépannage & Installation 24h/24",
-  description: "Intervention rapide sur Nice pour vos urgences plomberie : fuite, débouchage, chauffe-eau, rénovation salle de bain. Appelez-nous pour un devis gratuit.",
-  keywords: [
-    "plombier Nice",
-    "dépannage plomberie Nice",
-    "urgence fuite d'eau",
-    "installation sanitaire Nice",
-    "plombier pas cher Nice",
-    "chauffe-eau Nice",
-    "rénovation salle de bains Nice"
-  ],
+export const metadata = {
+  title: "Plombier à Nice - Interventions rapides & professionnelles",
+  description: "Intervention express à Nice pour dépannage, fuite, débouchage, chauffe-eau et plus. Plombier expérimenté, devis gratuit et service garanti.",
   openGraph: {
-    title: "Plombier Nice Expert – Intervention rapide & efficace",
-    description: "Faites appel à un plombier expérimenté à Nice pour tous vos besoins en dépannage, entretien et installation.",
+    title: "Plombier à Nice - Interventions rapides & professionnelles",
+    description: "Intervention express à Nice pour dépannage, fuite, débouchage, chauffe-eau et plus.",
     url: "https://plombiernice-expert.fr",
     siteName: "Plombier Nice Expert",
+    images: [
+      {
+        url: "https://plombiernice-expert.fr/images/plombier-nice-hero.webp",
+        width: 800,
+        height: 600,
+        alt: "Plombier professionnel à Nice",
+      },
+    ],
     locale: "fr_FR",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Plombier à Nice - Interventions rapides & professionnelles",
+    description: "Plombier expérimenté pour dépannage, fuite, chauffe-eau, rénovation à Nice. Service rapide, devis gratuit.",
+    images: ["https://plombiernice-expert.fr/images/plombier-nice-hero.webp"],
+  },
 };
+
 
 export default function Home() {
   return (
-    <main className="font-sans bg-white text-[#1b1e3f]">
-      {/* Hero principal avec image et stats */}
-      <Hero />
-      <PlumbingIntro />
-      <ServiceSection />
-      <ProjectSection />
-      <InfoSection/>
-      <ContactSection />
-      <StatsCard />
-      <Testimonials />
-      <ProductGallery />
-    </main>
+    <>
+      <LocalBusinessSchema />
+      <main className="font-sans bg-white text-[#1b1e3f]  ">
+        {/* Hero principal avec image et stats */}
+        <Hero />
+        <section className="bg-white ">
+          <PlumbingIntro />
+        </section>
+        <ServiceSection />
+        <ProjectSection />
+        <InfoSection />
+        <ContactSection />
+        <StatsCard />
+        <Testimonials />
+        <ProductGallery />
+      </main>
+    </>
   );
 }

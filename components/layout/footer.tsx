@@ -24,13 +24,13 @@ export default function Footer() {
                             06000 Nice, France
                         </p>
                         <div className="flex space-x-3 mt-4">
-                            <a href="#" aria-label="Facebook" className="hover:text-orange-500">
+                            <a href="#" aria-label="Facebook" className="hover:text-[#1B1E3F]">
                                 <Facebook size={20} />
                             </a>
-                            <a href="#" aria-label="Twitter" className="hover:text-orange-500">
+                            <a href="#" aria-label="Twitter" className="hover:text-[#1B1E3F]">
                                 <Twitter size={20} />
                             </a>
-                            <a href="#" aria-label="Instagram" className="hover:text-orange-500">
+                            <a href="#" aria-label="Instagram" className="hover:text-[#1B1E3F]">
                                 <Instagram size={20} />
                             </a>
                         </div>
@@ -41,12 +41,12 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold mb-2">Contactez-nous</h3>
                         <div className="text-sm text-gray-300 mb-2">
                             <Mail className="inline w-4 h-4 mr-2" />
-                            <a href="mailto:contact@plombiernice-expert.fr" className="hover:text-orange-500">
+                            <a href="mailto:contact@plombiernice-expert.fr" className="hover:text-[#1B1E3F]">
                                 contact@plombiernice-expert.fr
                             </a>
                         </div>
                         <p className="text-xl font-bold text-white">
-                            06 12 34 56 78
+                            +33 693 78 88 07
                         </p>
                     </div>
                 </div>

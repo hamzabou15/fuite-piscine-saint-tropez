@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://plombiernice-expert.fr/sitemap.xml
