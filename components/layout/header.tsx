@@ -35,20 +35,25 @@ export default function Header() {
     return (
         <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
             <div className="max-w-6xl mx-auto px-16 max-md:px-6 pl-0 py-3 flex items-center justify-between">
-                <Image
-                    src="/images/logo.png"
-                    alt="Logo Plombier Nice Expert"
-                    width={200}
-                    height={50}
-                    className="max-md:hidden"
-                />
-                <Image
-                    src="/images/logoV2.png"
-                    alt="Logo Plombier Nice Expert"
-                    width={50}
-                    height={50}
-                    className="md:hidden "
-                />
+                <Link href={"/"}>
+                    <Image
+                        src="/images/logo.png"
+                        alt="Logo Plombier Nice Expert"
+                        width={200}
+                        height={50}
+                        className="max-md:hidden"
+                    />
+                </Link>
+                <Link href={"/"}>
+
+                    <Image
+                        src="/images/logoV2.png"
+                        alt="Logo Plombier Nice Expert"
+                        width={50}
+                        height={50}
+                        className="md:hidden "
+                    />
+                </Link>
 
                 <div className="md:hidden">
                     <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
