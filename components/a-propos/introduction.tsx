@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 const Introduction = () => {
     return (
@@ -23,7 +24,9 @@ const Introduction = () => {
                     Notre zone d’intervention autour de Nice
                 </h2>
                 <p className="text-lg leading-relaxed">
-                    Votre projet de <a href="/salles-de-bains/"><span >rénovation de salle de bains</span></a> sera livré <strong>clé en main</strong>, car nous coordonnons les différents corps de métiers pour que votre chantier vous soit livré dans les temps et selon les règles de l’art.                </p>
+                    Votre projet de <Link href="/services/salle-de-bains-pmr"><span>rénovation de salle de bains</span></Link> sera livré <strong>clé en main</strong>, car nous coordonnons les différents corps de métiers pour que votre chantier vous soit livré dans les temps et selon les règles de l’art.
+                </p>
+           
             </div>
         </section>
     )
