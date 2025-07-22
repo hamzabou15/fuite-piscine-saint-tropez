@@ -35,23 +35,27 @@ export default function Header() {
     return (
         <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
             <div className="max-w-6xl mx-auto px-16 max-md:px-6 pl-0 py-3 flex items-center justify-between">
-                <Link href={"/"}>
+                <Link href={"/"}
+                    className="max-md:hidden"
+
+                >
                     <Image
                         src="/images/logo.png"
                         alt="Logo Plombier Nice Expert"
                         width={200}
                         height={50}
-                        className="max-md:hidden"
                     />
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/"}
+                    className="md:hidden"
+
+                >
 
                     <Image
-                        src="/images/logoV2.png"
+                        src="/images/LogoV2.png"
                         alt="Logo Plombier Nice Expert"
                         width={50}
                         height={50}
-                        className="md:hidden "
                     />
                 </Link>
 
@@ -116,24 +120,34 @@ export default function Header() {
             {/* MOBILE MENU */}
             {mobileMenuOpen && (
                 <div className="md:hidden bg-white border-t text-sm font-medium px-4 py-4 space-y-3">
-                    <Link href="/" className="block text-[#1b1e3f] hover:text-[#13727B]">Accueil</Link>
+                    <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block text-[#1b1e3f] hover:text-[#13727B]">Accueil</Link>
+
                     <details className="group">
                         <summary className="cursor-pointer text-[#1b1e3f] hover:text-[#13727B]">Services</summary>
                         <div className="mt-2 pl-4 space-y-2">
-                            <Link href={"/services"} className="block text-[#13727B] hover:text-[#13727B]">
+                            <Link
+                                href="/services"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="block text-[#13727B] hover:text-[#13727B]"
+                            >
                                 Tous Les Services
                             </Link>
                             {services.map((item) => (
-                                <>
-                                    <Link key={item.href} href={item.href} className="block text-[#1b1e3f] hover:text-[#13727B]">
-                                        {item.title}
-                                    </Link>
-                                </>
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="block text-[#1b1e3f] hover:text-[#13727B]"
+                                >
+                                    {item.title}
+                                </Link>
                             ))}
                         </div>
                     </details>
-                    <Link href="/a-propos" className="block text-[#1b1e3f] hover:text-[#13727B]">À propos</Link>
-                    <Link href="/contact" className="block text-[#1b1e3f] hover:text-[#13727B]">Contact</Link>
+
+                    <Link href="/a-propos" onClick={() => setMobileMenuOpen(false)} className="block text-[#1b1e3f] hover:text-[#13727B]">À propos</Link>
+                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block text-[#1b1e3f] hover:text-[#13727B]">Contact</Link>
+
                     <div className="flex items-center gap-2 pt-2 border-t">
                         <Phone className="w-4 h-4 text-[#13727B]" />
                         <a href="tel:+33693788807" className="text-sm text-[#13727B] font-medium">
@@ -142,6 +156,7 @@ export default function Header() {
                     </div>
                 </div>
             )}
+
         </header>
     );
 }
