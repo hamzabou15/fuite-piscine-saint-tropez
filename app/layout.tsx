@@ -1,4 +1,3 @@
-
 // app/layout.tsx
 import "./globals.css";
 import { Montserrat } from "next/font/google";
@@ -14,29 +13,29 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-export const metadata = {
-  title: "Plombier à Nice – Dépannage rapide et efficace | PlombierNice Expert",
+export const metadata: Metadata = {
+  title: "Fuite piscine à Nice – Détection et réparation experte | Expert",
   description:
-    "Plombier professionnel à Nice : dépannage en urgence, détection de fuites, débouchage, rénovation de salle de bains. Devis gratuit 7j/7 !",
+    "Détection de fuite piscine à Nice : intervention rapide, technologie de pointe, réparation efficace. Contactez nos spécialistes en recherche de fuite non destructive.",
   keywords: [
-    "plombier Nice",
-    "urgence plomberie Nice",
-    "chauffe-eau Nice",
-    "débouchage canalisation Nice",
-    "rénovation salle de bains Nice",
+    "fuite piscine Nice",
+    "détection fuite piscine Nice",
+    "réparation fuite piscine Nice",
+    "fuite bassin Nice",
+    "expert fuite piscine Nice",
   ],
   openGraph: {
-    title: "Plombier à Nice – Dépannage rapide et efficace | PlombierNice Expert",
+    title: "Fuite piscine à Nice – Détection et réparation experte | Expert",
     description:
-      "Interventions express à Nice : fuite d’eau, débouchage, chauffe-eau, rénovation de salle de bains. Contactez un artisan local fiable.",
-    url: "https://plombiernice-expert.fr/",
-    siteName: "PlombierNice Expert",
+      "Problème de fuite piscine à Nice ? Faites appel à notre équipe d'experts. Inspection caméra, test de pression, réparation ciblée. Service rapide et professionnel.",
+    url: "https://fuitepiscinenice-expert.fr/recherche-de-fuite-piscine-nice",
+    siteName: "Fuite Picine Nice Expert",
     images: [
       {
-        url: "/images/plombier-nice-hero.webp",
+        url: "/images/fuite-piscine-nice.webp",
         width: 1200,
         height: 630,
-        alt: "Plombier professionnel à Nice",
+        alt: "Détection de fuite piscine à Nice",
       },
     ],
     locale: "fr_FR",

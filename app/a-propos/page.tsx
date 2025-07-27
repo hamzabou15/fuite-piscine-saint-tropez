@@ -18,11 +18,11 @@ const page = () => {
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "LocalBusiness",
-                            name: "PlombierNice Expert",
-                            image: "https://plombiernice-expert.fr/images/plombier-nice-hero.webp",
-                            "@id": "https://plombiernice-expert.fr/",
-                            url: "https://plombiernice-expert.fr/",
-                            telephone: "+33612345678",
+                            name: "Fuite Piscine Expert",
+                            image: "https://https://fuitepiscinenice-expert.fr/images/fuite-piscine-sur-nice.webp",
+                            "@id": "https://https://fuitepiscinenice-expert.fr/",
+                            url: "https://https://fuitepiscinenice-expert.fr/",
+                            telephone: "+33647572021",
                             address: {
                                 "@type": "PostalAddress",
                                 streetAddress: "12 Rue de France",
@@ -61,8 +61,8 @@ const page = () => {
                 <StatsCard />
                 <div className=' flex justify-center'>
                     <Image
-                        src="/images/expert-plombier-nice.webp"
-                        alt="Expert plombier à Nice"
+                        src="/images/piscine-d-escalier-fuite-nice.webp"
+                        alt="Expert fuites piscine à Nice"
                         width={1000}
                         height={1000}
                         className='w-full h-auto object-cover mt-10 mb-10'

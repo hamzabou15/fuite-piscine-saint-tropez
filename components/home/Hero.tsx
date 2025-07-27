@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -7,68 +6,76 @@ import { Button } from "../ui/button";
 import Head from "next/head";
 
 export default function Hero() {
-    return (
-        <>
-            <Head>
-                <title>Plombier à Nice - Interventions rapides & professionnelles</title>
-                <meta name="description" content="Dépannage, chauffe-eau, débouchage, fuite d'eau, rénovation salle de bains. Plombier à Nice avec service rapide et garanti." />
-                <meta property="og:title" content="Plombier à Nice - Interventions rapides & professionnelles" />
-                <meta property="og:description" content="Service de plomberie rapide et fiable à Nice. Demandez votre devis gratuit dès maintenant." />
-                <meta property="og:image" content="https://plombiernice-expert.fr/images/plombier-nice-hero.webp" />
-                <meta property="og:url" content="https://plombiernice-expert.fr" />
-                <meta name="twitter:card" content="summary_large_image" />
-            </Head>
-            <section className="bg-white">
-                <div className="max-w-7xl mx-auto  flex flex-col md:flex-row items-center justify-between gap-10 2xl:px-16">
-                    {/* Image */}
-                    <div className="w-full md:w-1/2">
-                        <Image
-                            src="/images/plombier-nice-hero.webp"
-                            alt="Plombier professionnel à Nice"
-                            width={600}
-                            height={500}
-                            className="w-full h-auto object-cover "
-                            priority
-                        />
-                    </div>
+  return (
+    <>
+      <Head>
+        <title>Recherche de fuite piscine à Nice – Intervention non destructive</title>
+        <meta
+          name="description"
+          content="Spécialistes en détection de fuite de piscine à Nice : liner, coque, canalisation, skimmer. Devis rapide, rapport sous 48h, sans vider le bassin."
+        />
+        <meta property="og:title" content="Recherche de fuite piscine à Nice – Intervention sans casse" />
+        <meta
+          property="og:description"
+          content="Localisation précise de fuites piscine enterrée, liner ou canalisation. Intervention rapide et non destructive. Demandez votre devis gratuit."
+        />
+        <meta property="og:image" content="https://fuitepiscinenice-expert.fr/images/og-fuite-piscine.jpg" />
+        <meta property="og:url" content="https://fuitepiscinenice-expert.fr" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
 
-                    {/* Texte principal */}
-                    <div className="w-full md:w-1/2 text-center md:text-left pr-12 max-md:px-4 ">
-                        <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4 text-[#222626]">
-                            Interventions rapides à Nice <br />
-                            par un plombier expérimenté
-                        </h1>
-                        <p className="text-gray-700 mb-6 text-lg">
-                            Dépannage express, installation de chauffe-eau, débouchage, détection de fuites, rénovation de salle de bains.
-                            Profitez d’un service de qualité avec garantie.
-                        </p>
-                        <Link
-                            href="/contact"
-                        >
-                            <Button size={"lg"} variant="default" className="bg-[#13727B] text-white hover:bg-[#0e5a5f]">
+      <section className="bg-white pb-20 pt-10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10  ">
+          {/* Image */}
+          <div className="w-full md:w-1/2 ">
+            <Image
+              src="/images/Panne-reparation-fuite-nice.webp"
+              alt="Expert en détection de fuite piscine à Nice"
+              width={600}
+              height={500}
+              className="w-full h-auto object-cover shadow-lg"
+              priority
+            />
+          </div>
 
-                                Obtenir un devis gratuit
-                            </Button>
-                        </Link>
+          {/* Texte principal */}
+          <div className="w-full md:w-1/2 text-center md:text-left mt-4">
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-[var(--color-pool-dark)]">
+              Recherche et réparation de fuite de piscine à Nice
+              <br />
+              Et l’ensemble des Alpes-Maritimes (06)
+            </h1>
+            <p className="text-lg text-[var(--color-pool-muted)] mb-6">
+              Spécialistes en <strong>détection de fuite piscine</strong> (liner, coque, canalisation, skimmer) – intervention rapide à Nice. <br />
+              Devis gratuit sous 24 h · rapport complet sous 48 h.
+            </p>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="bg-[var(--color-pool-primary)] text-white hover:bg-[var(--color-pool-dark)] transition duration-200"
+              >
+                Obtenir un devis gratuit
+              </Button>
+            </Link>
 
-                        {/* Stats */}
-                        <div className="grid grid-cols-3 gap-4 text-center mt-10 py-">
-                            <div>
-                                <p className="text-2xl font-bold text-[#222626]">20+</p>
-                                <p className="text-sm text-gray-500">Interventions/jour</p>
-                            </div>
-                            <div>
-                                <p className="text-2xl font-bold text-[#222626]">100+</p>
-                                <p className="text-sm text-gray-500">Clients satisfaits/semaine</p>
-                            </div>
-                            <div>
-                                <p className="text-2xl font-bold text-[#222626]">10+</p>
-                                <p className="text-sm text-gray-500">Nouveaux clients/jour</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </>
-    );
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4 text-center mt-10">
+              <div>
+                <p className="text-2xl font-bold text-[var(--color-pool-primary)]">99 %</p>
+                <p className="text-sm text-[var(--color-pool-dark)]">Fuites détectées</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-[var(--color-pool-primary)]">48 h</p>
+                <p className="text-sm text-[var(--color-pool-dark)]">Rapport par e‑mail</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-[var(--color-pool-primary)]">100 %</p>
+                <p className="text-sm text-[var(--color-pool-dark)]">Sans vider le bassin</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }

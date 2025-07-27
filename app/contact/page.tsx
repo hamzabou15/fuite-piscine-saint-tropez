@@ -4,19 +4,19 @@ import Head from 'next/head'
 import React from 'react'
 
 export const metadata = {
-    title: "Plombier à Nice - Interventions rapides & professionnelles",
-    description: "Intervention express à Nice pour dépannage, fuite, débouchage, chauffe-eau et plus. Plombier expérimenté, devis gratuit et service garanti.",
+    title: "Fuite Piscine à Nice - Interventions rapides & professionnelles",
+    description: "Intervention express à Nice pour dépannage, fuite, débouchage, chauffe-eau et plus. Fuite Piscine expérimenté, devis gratuit et service garanti.",
     openGraph: {
-        title: "Plombier à Nice - Interventions rapides & professionnelles",
+        title: "Fuite Piscine à Nice - Interventions rapides & professionnelles",
         description: "Intervention express à Nice pour dépannage, fuite, débouchage, chauffe-eau et plus.",
-        url: "https://plombiernice-expert.fr",
-        siteName: "Plombier Nice Expert",
+        url: "https://https://fuitepiscinenice-expert.fr",
+        siteName: "Fuite Piscine Nice Expert",
         images: [
             {
-                url: "https://plombiernice-expert.fr/images/plombier-nice-hero.webp",
+                url: "https://https://fuitepiscinenice-expert.fr/images/fuite-piscine-beton-nice.webp",
                 width: 800,
                 height: 600,
-                alt: "Plombier professionnel à Nice",
+                alt: "Fuite Piscine professionnel à Nice",
             },
         ],
         locale: "fr_FR",
@@ -24,9 +24,9 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Plombier à Nice - Interventions rapides & professionnelles",
-        description: "Plombier expérimenté pour dépannage, fuite, chauffe-eau, rénovation à Nice. Service rapide, devis gratuit.",
-        images: ["https://plombiernice-expert.fr/images/plombier-nice-hero.webp"],
+        title: "Fuite Piscine à Nice - Interventions rapides & professionnelles",
+        description: "Fuite Piscine expérimenté pour dépannage, fuite, chauffe-eau, rénovation à Nice. Service rapide, devis gratuit.",
+        images: ["https://https://fuitepiscinenice-expert.fr/images/fuite-piscine-beton-nice.webp"],
     },
 };
 const page = () => {
@@ -40,11 +40,11 @@ const page = () => {
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "LocalBusiness",
-                            name: "PlombierNice Expert",
-                            image: "https://plombiernice-expert.fr/images/plombier-nice-hero.webp",
-                            "@id": "https://plombiernice-expert.fr/",
-                            url: "https://plombiernice-expert.fr/",
-                            telephone: "+33612345678",
+                            name: "Fuite Piscine Expert",
+                            image: "https://https://fuitepiscinenice-expert.fr/images/fuite-piscine-expert-nice-7.webp",
+                            "@id": "https://https://fuitepiscinenice-expert.fr/",
+                            url: "https://https://fuitepiscinenice-expert.fr/",
+                            telephone: "+33647572021",
                             address: {
                                 "@type": "PostalAddress",
                                 streetAddress: "12 Rue de France",

@@ -9,7 +9,7 @@ import {
     NavigationMenuContent,
     NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
-import { Phone, Menu } from "lucide-react";
+import { Phone, Search, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import Image from "next/image";
@@ -18,126 +18,92 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const services = [
-        { title: "Installation et rénovation de plomberie", href: "/services/installation-renovation-plomberie" },
-        { title: "Dépannage plomberie à Nice", href: "/services/depannage-plomberie" },
-        { title: "Salle de bains clé en main", href: "/services/salle-de-bains-cle-en-main" },
-        { title: "Salle de bains PMR à Nice", href: "/services/salle-de-bains-pmr" },
-        { title: "Installation de chauffage", href: "/services/installation-chauffage" },
-        { title: "Remplacement de chaudière", href: "/services/remplacement-chaudiere" },
-        { title: "Climatisation réversible à Nice", href: "/services/climatisation-reversible" },
-        { title: "Entretien annuel chaudière & climatisation", href: "/services/entretien-chaudiere-climatisation" },
-        { title: "Dépannage chauffage & climatisation", href: "/services/depannage-chauffage-climatisation" },
-        { title: "Recherche et réparation de fuites", href: "/services/recherche-reparation-fuites" },
-        { title: "Désembouage de circuits de chauffage", href: "/services/desembouage-circuits-chauffage" },
-        { title: "Installation de chauffe-eau", href: "/services/installation-chauffe-eau" },
+        { title: "Recherche de fuite piscine à Nice", href: "/recherche-de-fuite-piscine-nice" },
+        { title: "Diagnostic avant rénovation", href: "/services/diagnostic-avant-renovation" },
+        { title: "Chemisage canalisation piscine", href: "/services/chemisage-canalisation-piscine" },
+        { title: "Inspection vidéo et électro‑acoustique", href: "/services/inspection-video-electroacoustique" },
+        { title: "Test pression canalisations piscine", href: "/services/test-pression-canalisations" },
+        { title: "Détection fluorescéine / gaz traceur", href: "/services/detection-fluoresceine-gaz" },
+        { title: "Réparation sans casse immédiate", href: "/services/reparation-sans-casse" },
+        { title: "Devis sous 24h & rapport 48h", href: "/services/devis-rapport" },
     ];
 
     return (
         <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
-            <div className="max-w-6xl mx-auto px-16 max-md:px-6 pl-0 py-3 flex items-center justify-between">
-                <Link href={"/"}
-                    className="max-md:hidden"
-
-                >
-                    <Image
-                        src="/images/logo.png"
-                        alt="Logo Plombier Nice Expert"
-                        width={200}
-                        height={50}
-                    />
+            <div className="max-w-6xl mx-auto px-16 py-3 flex items-center justify-between max-md:px-6">
+                <Link href="/">
+                    <Image src="/images/logo-fuites-piscine.png" alt="Fuite Piscine Expert Nice" width={200} height={50} className="h-[70px] object-cover" />
                 </Link>
-                <Link href={"/"}
-                    className="md:hidden"
-
-                >
-
-                    <Image
-                        src="/images/LogoV2.png"
-                        alt="Logo Plombier Nice Expert"
-                        width={50}
-                        height={50}
-                    />
-                </Link>
-
-                <div className="md:hidden">
-                    <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                        <Menu className="text-[#13727B] w-6 h-6" />
-                    </button>
-                </div>
 
                 <NavigationMenu className="hidden md:flex">
-                    <NavigationMenuList className="flex gap-6 text-sm font-medium text-[#1b1e3f]">
+                    <NavigationMenuList className="flex gap-8 text-sm font-medium text-[#1b1e3f]">
                         <NavigationMenuItem>
-                            <NavigationMenuLink asChild className="hover:text-[#13727B] transition">
+                            <NavigationMenuLink asChild>
                                 <Link href="/">Accueil</Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
-
                         <NavigationMenuItem>
-                            <NavigationMenuLink asChild className="hover:text-[#13727B] transition">
-                                <NavigationMenuTrigger className="hover:text-[#13727B]">
-                                    <Link href="/services">Services</Link>
-                                </NavigationMenuTrigger>
-                            </NavigationMenuLink>
-
-                            <NavigationMenuContent className="bg-[#1b1e3f] text-white rounded-sm shadow-lg p-4 grid gap-2" style={{ width: "300px" }}>
+                            <NavigationMenuTrigger>
+                                Services
+                            </NavigationMenuTrigger>
+                            <NavigationMenuContent className="bg-[#1b1e3f] text-white rounded-sm shadow-lg p-4 grid gap-2" style={{ width: "320px" }}>
                                 {services.map((item) => (
                                     <NavigationMenuLink
                                         key={item.href}
                                         asChild
-                                        className={cn(
-                                            "block px-3 py-2 text-sm hover:bg-[#13727B] hover:text-white transition rounded-sm"
-                                        )}
+                                        className="block px-3 py-2 text-sm hover:bg-[#02BAD6] hover:text-white rounded-sm"
                                     >
                                         <Link href={item.href}>{item.title}</Link>
                                     </NavigationMenuLink>
                                 ))}
                             </NavigationMenuContent>
                         </NavigationMenuItem>
-
                         <NavigationMenuItem>
-                            <NavigationMenuLink asChild className="hover:text-[#13727B] transition">
+                            <NavigationMenuLink asChild>
                                 <Link href="/a-propos">À propos</Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
-
                         <NavigationMenuItem>
-                            <NavigationMenuLink asChild className="hover:text-[#13727B] transition">
+                            <NavigationMenuLink asChild>
                                 <Link href="/contact">Contact</Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
 
-                <div className="hidden md:flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-[#13727B]" />
-                    <a href="tel:+33693788807" className="text-sm text-[#13727B] font-medium">
-                        +33 6 93 78 88 07
+                <div className="hidden md:flex items-center gap-4">
+                    <Link href="/recherche-de-fuite-piscine-nice" className="text-sm text-[#02BAD6] font-medium hover:underline">
+                        Recherche fuite piscine
+                    </Link>
+                    <Phone className="w-4 h-4 text-[#02BAD6]" />
+                    <a href="tel:+33647572021" className="text-sm text-[#02BAD6] font-medium">
+                        +33 647 57 20 21
                     </a>
+                </div>
+
+                <div className="md:hidden">
+                    <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                        <Menu className="text-[#02BAD6] w-6 h-6" />
+                    </button>
                 </div>
             </div>
 
-            {/* MOBILE MENU */}
+            {/* MENU MOBILE */}
             {mobileMenuOpen && (
                 <div className="md:hidden bg-white border-t text-sm font-medium px-4 py-4 space-y-3">
-                    <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block text-[#1b1e3f] hover:text-[#13727B]">Accueil</Link>
+                    <Link href="/" className="block text-[#1b1e3f] hover:text-[#02BAD6]" onClick={() => setMobileMenuOpen(false)}>
+                        Accueil
+                    </Link>
 
                     <details className="group">
-                        <summary className="cursor-pointer text-[#1b1e3f] hover:text-[#13727B]">Services</summary>
+                        <summary className="cursor-pointer text-[#1b1e3f] hover:text-[#02BAD6]">Services</summary>
                         <div className="mt-2 pl-4 space-y-2">
-                            <Link
-                                href="/services"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="block text-[#13727B] hover:text-[#13727B]"
-                            >
-                                Tous Les Services
-                            </Link>
                             {services.map((item) => (
                                 <Link
                                     key={item.href}
                                     href={item.href}
+                                    className="block text-[#1b1e3f] hover:text-[#02BAD6]"
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="block text-[#1b1e3f] hover:text-[#13727B]"
                                 >
                                     {item.title}
                                 </Link>
@@ -145,18 +111,21 @@ export default function Header() {
                         </div>
                     </details>
 
-                    <Link href="/a-propos" onClick={() => setMobileMenuOpen(false)} className="block text-[#1b1e3f] hover:text-[#13727B]">À propos</Link>
-                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block text-[#1b1e3f] hover:text-[#13727B]">Contact</Link>
+                    <Link href="/a-propos" className="block text-[#1b1e3f] hover:text-[#02BAD6]" onClick={() => setMobileMenuOpen(false)}>
+                        À propos
+                    </Link>
+                    <Link href="/contact" className="block text-[#1b1e3f] hover:text-[#02BAD6]" onClick={() => setMobileMenuOpen(false)}>
+                        Contact
+                    </Link>
 
-                    <div className="flex items-center gap-2 pt-2 border-t">
-                        <Phone className="w-4 h-4 text-[#13727B]" />
-                        <a href="tel:+33693788807" className="text-sm text-[#13727B] font-medium">
-                            +33 6 93 78 88 07
+                    <div className="flex items-center gap-2 pt-4 border-t">
+                        <Phone className="w-4 h-4 text-[#02BAD6]" />
+                        <a href="tel:+33647572021" className="text-sm text-[#02BAD6] font-medium">
+                            +33 647 57 20 21
                         </a>
                     </div>
                 </div>
             )}
-
         </header>
     );
 }

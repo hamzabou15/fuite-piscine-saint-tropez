@@ -41,8 +41,7 @@ export default function PipelinesPage() {
                 <Image
                   className="mt-4 object-cover w-full max-lg:max-h-64"
                   src={
-                    service.child.img1 ??
-                    "/images/plombier-expert-sur-nice.webp"
+                    "/images/inspection-video-piscine.webp"
                   }
                   alt="Pipeline 1"
                   width={300}
@@ -51,8 +50,8 @@ export default function PipelinesPage() {
                 <Image
                   className="mt-4 object-cover w-full max-lg:max-h-64"
                   src={
-                    service.child.img2 ??
-                    "/images/plombier-expert-sur-nice.webp"
+
+                    "/images/fuite-piscine-sur-nice-repartaion.webp"
                   }
                   alt="Pipeline 2"
                   width={300}

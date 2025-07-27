@@ -33,14 +33,14 @@ export default function ContactForm() {
 
   return (
     <div className=" p-10 max-w-6xl mx-auto ">
-      <h3 className="uppercase text-lg tracking-widest text-gray-700 font-bold mb-2">
+      <h3 className="uppercase text-lg tracking-widest text-[#1b1e3f] font-bold mb-2">
         Contactez-nous
       </h3>
       <form
         onSubmit={handleSubmit}
         className="grid grid-cols-1 md:grid-cols-2 gap-4"
       >
-        <input type="hidden" name="_subject" value="Une nouvelle demande - Plombier sur Nice" />
+        <input type="hidden" name="_subject" value="Une nouvelle demande - Fuite Piscine sur Nice" />
 
         <input type="text" name="Prénom" placeholder="Prénom" required className="border-b border-gray-300 focus:outline-none focus:border-[#13727B] py-2" />
         <input type="text" name="Nom" placeholder="Nom" required className="border-b border-gray-300 focus:outline-none focus:border-[#13727B] py-2" />
@@ -58,7 +58,7 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="mt-4 mx-auto w-fit px-6 py-2 bg-[#13727B] text-white font-semibold rounded hover:bg-[#0e5a61] transition col-span-2"
+          className="mt-4 mx-auto w-fit px-6 py-2 bg-[var(--color-pool-primary)] text-white font-semibold rounded hover:bg-[var(--color-pool-dark)] transition col-span-2"
         >
           Obtenir un diagnostic
         </button>

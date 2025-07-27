@@ -1,117 +1,90 @@
-'use client'
+"use client";
 
-import { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 const StatsCard = () => {
-    const stats = [
-        { value: 920, label: 'Interventions plomberie réalisées à Nice' },
-        { value: 85, label: 'Fuites d’eau détectées et réparées rapidement' },
-        { value: 25, label: 'Plombiers experts qualifiés à votre service' },
-        { value: 3, label: 'Quartiers et villes desservis autour de Nice' },
-    ];
+  const stats = [
+    { value: 99, label: "Taux de détection des fuites garanti %" },
+    { value: 48, label: "Rapport et devis envoyés sous 48 h" },
+    { value: 10, label: "Années d’expérience à Nice et 06" },
+    { value: 5, label: "Méthodes de détection technologiques" },
+  ];
 
-    return (
-        <section
-            className='bg-white w-full px-16 max-sm:px-6  h-auto py-12 xl:max-w-[1300px] m-auto'
-            id="chiffres-plomberie-nice"
-            aria-label="Statistiques sur les interventions de plomberie à Nice"
-        >
-            <div className='flex items-start justify-between max-lg:flex-wrap max-lg:gap-y-6'>
-                {stats.map((stat, index) => (
-                    <StatItem
-                        key={index}
-                        value={stat.value}
-                        label={stat.label}
-                        isLast={index === stats.length - 1}
-                    />
-                ))}
-            </div>
-        </section>
-    );
+  return (
+    <section
+      className="bg-white w-full px-16 max-sm:px-6 py-12 max-w-[1300px] mx-auto"
+      aria-label="Statistiques expertise fuite piscine Nice Alpes‑Maritimes"
+      id="chiffres-fuite-piscine-nice"
+    >
+      <div className="flex flex-wrap justify-between max-md:flex-col items-center ">
+        {stats.map((stat, idx) => (
+          <StatItem key={idx} {...stat} isLast={idx === stats.length - 1} />
+        ))}
+      </div>
+    </section>
+  );
 };
 
 const StatItem = ({
-    value,
-    label,
-    isLast,
+  value,
+  label,
+  isLast,
 }: {
-    value: number;
-    label: string;
-    isLast: boolean;
+  value: number;
+  label: string;
+  isLast: boolean;
 }) => {
-    const [count, setCount] = useState(0);
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
+  const [count, setCount] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const node = ref.current;
-        if (!node) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.5 }
-        );
-
-        observer.observe(node);
-
-        return () => {
-            if (node) {
-                observer.unobserve(node);
-            }
-        };
-    }, []);
-
-    useEffect(() => {
-        if (!isVisible) return;
-
-        const duration = 2000;
-        const startTime = performance.now();
-
-        const animate = (currentTime: number) => {
-            const elapsedTime = currentTime - startTime;
-            const progress = Math.min(elapsedTime / duration, 1);
-            setCount(Math.floor(progress * value));
-
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            }
-        };
-
-        requestAnimationFrame(animate);
-    }, [isVisible, value]);
-
-    return (
-        <div
-            ref={ref}
-            className={`flex flex-col mx-auto w-[25%] items-center gap-3 px-6 py-6 ${
-                !isLast
-                    ? 'border-l-[2px] border-[#d8d8d8] border-dashed max-lg:w-[50%] max-sm:w-[100%] max-sm:border-0'
-                    : ''
-            }`}
-        >
-            <motion.h1
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isVisible ? 1 : 0 }}
-                transition={{ duration: 0.5 }}
-                className='text-[110px] leading-24 m-0 font-semibold text-[#e8e8e8] max-lg:text-[92px]'
-                aria-label={`${count} ${label}`}
-            >
-                {count}
-            </motion.h1>
-            <span
-                className='text-[18px] font-semibold text-center text-[#1b1e3f] max-lg:text-base'
-                aria-live="polite"
-            >
-                {label}
-            </span>
-        </div>
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.5 }
     );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+    const startTime = performance.now();
+    const duration = 2000;
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      setCount(Math.floor(progress * value));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [visible, value]);
+
+  return (
+    <div
+      ref={ref}
+      className={`flex flex-col items-center py-6 px-4 w-1/4 max-md:w-full ${
+        !isLast && "border-l border-dashed border-gray-300"
+      } max-sm:w-full`}
+    >
+      <motion.h1
+        initial={{ opacity: 0 }}
+        animate={{ opacity: visible ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-6xl font-bold text-[#1b1e3f]"
+        aria-label={`${count} ${label}`}
+      >
+        {count}
+      </motion.h1>
+      <span className="text-lg text-center text-[#1b1e3f]">{label}</span>
+    </div>
+  );
 };
 
 export default StatsCard;

@@ -20,9 +20,9 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        send: "bg-[#edeff5] rounded-none text-[#13727B] shadow-xs hover:bg-[#191c25] hover:text-[white] transition-colors duration-300 cursor-pointer  ",
+        send: "bg-[#edeff5] rounded-none text-[var(--color-pool-primary)] shadow-xs hover:bg-[#191c25] hover:text-[white] transition-colors duration-300 cursor-pointer  ",
         read: "bg-[#13727B] rounded-none text-[white] shadow-xs hover:bg-[#1b1e3f] hover:text-[white] transition ease-out duration-300 cursor-pointer",
-        submit: "bg-[#13727B] rounded-none text-[white] shadow-xs hover:bg-[#edeff5] hover:text-[#191c25] transition ease-out duration-300 cursor-pointer",
+        submit: " bg-[var(--color-pool-primary)] text-white  hover:bg-[var(--color-pool-dark)] rounded-none text-white shadow-xs  hover:text-white transition ease-out duration-300 cursor-pointer",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

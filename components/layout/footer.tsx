@@ -8,18 +8,19 @@ export default function Footer() {
                 {/* Slogan SEO */}
                 <div>
                     <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
-                        Services de plomberie à Nice <br /> avec garantie de qualité
+                        Recherche de fuites piscine à Nice <br /> avec garantie de précision
                     </h2>
                     <p className="text-sm text-gray-300">
-                        Intervention rapide 24h/24 – Dépannage, installation, rénovation.
+                        Intervention rapide – Sans casse – Rapport complet sous 48h.
                     </p>
                 </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Adresse */}
                     <div>
                         <h3 className="text-lg font-semibold mb-2">Adresse</h3>
                         <p className="text-gray-300 text-sm">
-                            Plombier Nice Expert <br />
+                            Fuite Piscine Expert Nice <br />
                             15 Rue de France, Bureau 302 <br />
                             06000 Nice, France
                         </p>
@@ -41,20 +42,22 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold mb-2">Contactez-nous</h3>
                         <div className="text-sm text-gray-300 mb-2">
                             <Mail className="inline w-4 h-4 mr-2" />
-                            <a href="mailto:contact@plombiernice-expert.fr" className="hover:text-[#1B1E3F]">
-                                contact@plombiernice-expert.fr
+                            <a
+                                href="mailto:contact@fuitepiscine-nice.fr"
+                                className="hover:text-[#1B1E3F]"
+                            >
+                                contact@fuitepiscine-nice.fr
                             </a>
                         </div>
                         <p className="text-xl font-bold text-white">
-                            +33 693 78 88 07
+                            +33 6 47 57 20 21
                         </p>
                     </div>
                 </div>
-
             </div>
 
             <div className="mt-12 border-t border-gray-700 pt-6 text-sm text-gray-400 flex flex-col md:flex-row items-center justify-between">
-                <p>&copy; {new Date().getFullYear()} Plombier Nice Expert. Tous droits réservés.</p>
+                <p>&copy; {new Date().getFullYear()} Fuite Piscine Expert Nice. Tous droits réservés.</p>
                 <div className="flex space-x-4 mt-2 md:mt-0">
                     <Link href="/" className="hover:text-white">Accueil</Link>
                     <Link href="/services" className="hover:text-white">Services</Link>
