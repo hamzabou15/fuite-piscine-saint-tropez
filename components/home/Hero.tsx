@@ -36,6 +36,7 @@ export default function Hero() {
               className="w-full h-auto object-cover shadow-lg"
               priority
             />
+            
           </div>
 
           {/* Texte principal */}
