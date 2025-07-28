@@ -9,7 +9,7 @@ export default function FuiteInfos5() {
     <section className="py-20 max-w-7xl mx-auto px-6 md:px-16">
             <div className="flex items-start gap-20 justify-between flex-col lg:flex-row">
                 {/* Texte gauche */}
-                <div className="lg:w-[50%] w-full sticky top-20 left-0">
+                <div className="lg:w-[50%] w-full sticky top-20 left-0 left-0 max-lg:relative">
                     <p className="uppercase text-sm text-[#475565] font-semibold tracking-widest mb-2">
                         Spécialiste de la recherche de fuite - Nice & 06
                     </p>
@@ -38,7 +38,7 @@ export default function FuiteInfos5() {
                         alt="Technicien en détection de fuite piscine à Nice"
                         width={600}
                         height={500}
-                        className="object-cover w-full rounded-lg shadow-lg min-h-[450px] object-cover"
+                        className="object-cover w-full rounded-lg shadow-lg min-h-[450px]"
                     />
                 </div>
             </div>
