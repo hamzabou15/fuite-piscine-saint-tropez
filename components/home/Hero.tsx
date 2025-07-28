@@ -29,7 +29,7 @@ export default function Hero() {
           {/* Image */}
           <div className="w-full md:w-1/2 ">
             <Image
-              src="/images/Panne-reparation-fuite-nice.webp"
+              src="/images/panne-reparation-fuite-nice.webp"
               alt="Expert en détection de fuite piscine à Nice"
               width={600}
               height={500}
