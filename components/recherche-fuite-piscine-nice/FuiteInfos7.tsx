@@ -9,7 +9,7 @@ export default function FuiteInfos7() {
     <section className="py-20 max-w-7xl mx-auto px-6 md:px-16">
             <div className="flex items-start gap-20 justify-between flex-col lg:flex-row">
                 {/* Texte gauche */}
-                <div className="lg:w-[50%] w-full sticky top-20 left-0 left-0 max-lg:relative">
+                <div className="lg:w-[50%] w-full sticky top-20 left-0 max-lg:relative  max-lg:mb-6">
                     <p className="uppercase text-sm text-[#475565] font-semibold tracking-widest mb-2">
                         Spécialiste de la recherche de fuite - Nice & 06
                     </p>
