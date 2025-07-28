@@ -9,7 +9,7 @@ export default function FuiteInfos2() {
         <section className="py-20 max-w-7xl mx-auto px-6 md:px-16">
             <div className="flex items-start gap-20 justify-between flex-col lg:flex-row">
                 {/* Image droite */}
-                <div className="w-[55%] h-full max-lg:w-full max-lg:flex max-lg:flex-col max-lg:gap-10 max-lg:h-auto sticky top-12 left-0">
+                <div className="w-[55%] h-full max-lg:w-full max-lg:flex max-lg:flex-col max-lg:gap-10 max-lg:h-auto sticky top-12 left-0 max-lg:relative">
                     <Image
                         src="/images/fuite-piscine-sur-nice-hydrite.webp"
                         alt="Technicien détectant une fuite de piscine"

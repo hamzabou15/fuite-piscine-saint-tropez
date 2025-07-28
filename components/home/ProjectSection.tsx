@@ -133,9 +133,9 @@ export default function ProjectSection() {
                   src={project.image}
                   alt={project.alt}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.1]"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.1] "
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-white/95 px-4 py-3 translate-y-full group-hover:translate-y-[-20px] transition-transform duration-500 ease-in-out">
+                <div className="absolute bottom-0 left-0 right-0 bg-white/95 px-4 py-3 translate-y-full group-hover:translate-y-[-20px] transition-transform duration-500 ease-in-out max-md:translate-y-[-20px] max-md:h-[100px]">
                   <h3 className="text-base font-semibold text-[var(--color-pool-dark)]">
                     {project.title}
                   </h3>

@@ -24,22 +24,23 @@ export default function Hero() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <section className="bg-white pb-20 pt-10">
+      <section className="bg-white pb-20 pt-10 max-md:pt-0">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10  ">
           {/* Image */}
           <div className="w-full md:w-1/2 ">
-            <Image
-              src="/images/pannes-reparation-fuite-nice.webp"
-              alt="Expert en détection de fuite piscine à Nice"
-              width={600}
-              height={500}
-              className="w-full h-auto object-cover shadow-lg"
-              priority
-            />
+           <Image
+  src="/images/pannes-reparation-fuite-nice.webp"
+  alt="Expert en détection de fuite piscine à Nice"
+  width={600}
+  height={500}
+  priority 
+  fetchPriority="high" 
+  className="w-full h-auto object-cover shadow-lg"
+/>
           </div>
 
           {/* Texte principal */}
-          <div className="w-full md:w-1/2 text-center md:text-left mt-4">
+          <div className="w-full md:w-1/2 text-center md:text-left mt-4 max-lg:px-5">
             <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-[var(--color-pool-dark)]">
               Recherche et réparation de fuite de piscine à Nice
               <br />

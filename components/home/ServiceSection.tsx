@@ -49,7 +49,7 @@ const services = [
 
 export default function ServiceSection() {
   return (
-    <section className=" py-16 px-16 max-sm:px-6">
+    <section className=" py-16 px-16 max-md:px-6">
       <div className="max-w-6xl mx-auto text-center">
         <p className="uppercase text-sm tracking-widest text-[var(--color-pool-muted)] font-medium mb-2">
           Nos services
