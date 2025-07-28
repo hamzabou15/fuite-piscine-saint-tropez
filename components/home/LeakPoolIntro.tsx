@@ -96,6 +96,7 @@ export default function LeakPoolIntro() {
           <div className="relative lg:w-[50%] w-full flex flex-col gap-6">
             <Image
               src="/images/piscine-mainten-a-nice.webp"
+
               alt="Recherche de fuite piscine à Nice"
               className="object-cover w-full rounded-lg shadow-lg"
               width={600}
