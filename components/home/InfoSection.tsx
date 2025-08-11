@@ -131,7 +131,7 @@ export default function RechercheFuitePiscinePage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <Image
-                  src="/images/piscine-fuite-sur-saint-tropez.webp"
+                  src="/images/piscine-fuite-sur-saint-tropez.Webp"
                   alt="Matériel de détection gaz traceur"
                   width={900}
                   height={600}
