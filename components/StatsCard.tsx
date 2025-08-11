@@ -7,15 +7,15 @@ const StatsCard = () => {
   const stats = [
     { value: 99, label: "Taux de détection des fuites garanti %" },
     { value: 48, label: "Rapport et devis envoyés sous 48 h" },
-    { value: 10, label: "Années d’expérience à Nice et 06" },
+    { value: 10, label: "Années d’expérience à Saint Tropez et 06" },
     { value: 5, label: "Méthodes de détection technologiques" },
   ];
 
   return (
     <section
       className="bg-white w-full px-16 max-sm:px-6 py-12 max-w-[1300px] mx-auto"
-      aria-label="Statistiques expertise fuite piscine Nice Alpes‑Maritimes"
-      id="chiffres-fuite-piscine-nice"
+      aria-label="Statistiques expertise fuite piscine Saint tropez Alpes‑Maritimes"
+      id="chiffres-fuite-piscine-saint-tropez"
     >
       <div className="flex flex-wrap justify-between max-md:flex-col items-center ">
         {stats.map((stat, idx) => (

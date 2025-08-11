@@ -125,14 +125,6 @@
 
 body {
   font-family: var(--font-montserrat, sans-serif);
-  /* background-color: #F2F5F5; */
-  --color-pool-primary: #02BAD6;
-  /* bleu clair piscine */
-  --color-pool-dark: #007994;
-  /* bleu foncé profond */
-  --color-pool-accent: #C1F6E5;
-  /* vert d’eau */
-  --color-pool-muted: #4A5568;
-  /* gris bleuté */
+
 
 }

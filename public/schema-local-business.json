@@ -1,43 +1,33 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Fuite Piscine Expert",
-  "image": "https://fuite-piscine-expert.fr/images/fuite-piscine-nice.webp",
-  "url": "https://fuite-piscine-expert.fr",
-  "telephone": "+33647572021",
+  "name": "Fuite Piscine Expert Saint-Tropez",
+  "image": "https://fuitepiscinesainttropez.fr/images/fuite-piscine-saint-tropez.webp",
+  "url": "https://fuitepiscinesainttropez.fr",
+  "telephone": "+33756935200",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "10 Rue Masséna",
-    "addressLocality": "Nice",
-    "postalCode": "06000",
+    "streetAddress": "10 Rue du Port",
+    "addressLocality": "Saint-Tropez",
+    "postalCode": "83990",
     "addressCountry": "FR"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 43.7031,
-    "longitude": 7.2661
+    "latitude": 43.2706,
+    "longitude": 6.6400
   },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "00:00",
-      "closes": "23:59"
-    }
-  ],
-  "description": "Spécialiste de la détection de fuites piscine à Nice. Intervention rapide avec matériel professionnel : caméra, gaz traceur, test de pression. Disponible 7j/7.",
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  }],
+  "description": "Spécialiste détection et réparation de fuites piscine à Saint-Tropez. Intervention rapide 7j/7 avec matériel professionnel : caméra, gaz traceur, test de pression. Devis gratuit.",
   "priceRange": "€€",
   "paymentAccepted": "Cash, Credit Card",
   "areaServed": {
     "@type": "Place",
-    "name": "Nice et alentours"
+    "name": "Saint-Tropez et Golfe de Saint-Tropez"
   }
 }

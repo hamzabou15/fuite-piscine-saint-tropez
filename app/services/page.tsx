@@ -1,29 +1,26 @@
-import HeroSection from '@/components/HeroSection'
-import PlumbingIntro from '@/components/home/LeakPoolIntro'
-import LocalBusinessSchema from '@/components/SEO/LocalBusiness'
-import ContactSection from '@/components/services/ContactSection'
-import ServicesSection from '@/components/services/ServicesSection'
-import Testimonials from '@/components/Testimonials'
-import Head from 'next/head'
-import React from 'react'
-
+import Head from "next/head";
+import PlumbingIntro from "@/components/home/LeakPoolIntro";
+import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/services/ContactSection";
+import Services from "@/components/services/ServicesSection";
+import HeroSection from "@/components/HeroSection";
 
 export const metadata = {
-  title: "Recherche de fuite piscine à Nice – Détection rapide et fiable",
+  title: "Recherche fuite piscine à Saint-Tropez | Détection non destructive",
   description:
-    "Spécialiste en recherche de fuite piscine à Nice. Diagnostic précis, technologie non destructive, rapport détaillé et devis gratuit. Intervention sous 48h.",
+    "Expert local à Saint-Tropez pour la recherche de fuite piscine (liner, canalisation, skimmer). Devis sous 24h, rapport sous 48h, sans vider le bassin, interventions sur Ramatuelle, Gassin, Pampelonne.",
   openGraph: {
-    title: "Recherche de fuite piscine à Nice – Détection rapide et fiable",
+    title: "Recherche fuite piscine à Saint-Tropez | Intervention rapide & sans casse",
     description:
-      "Expert local en détection de fuites de piscine à Nice. Intervention rapide, sans casse, avec rapport complet et devis offert.",
-    url: "https://fuitepiscinenice-expert.fr/services/recherche-fuite-piscine-nice",
-    siteName: "Fuite Piscine Expert Nice",
+      "Spécialiste Saint-Tropez – détection précise de fuite piscine sans casser votre bassin. Devis 24h, rapport 48h. Contactez +33 7 56 93 52 00.",
+    url: "https://fuitepiscinesainttropez.fr/services/recherche-fuite-piscine-saint-tropez",
+    siteName: "Fuite Piscine Expert Saint-Tropez",
     images: [
       {
-        url: "https://fuitepiscinenice-expert.fr/images/fuite-piscine-nice.webp",
+        url: "https://fuitepiscinesainttropez.fr/images/fuite-piscine-st-tropez.webp",
         width: 1200,
         height: 630,
-        alt: "Détection de fuite piscine à Nice",
+        alt: "Recherche fuite piscine Saint-Tropez",
       },
     ],
     locale: "fr_FR",
@@ -31,70 +28,86 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fuite Piscine à Nice – Détection rapide & rapport détaillé",
+    title: "Recherche fuite piscine à Saint-Tropez – Devis 24 h & rapport 48 h",
     description:
-      "Recherche de fuite piscine à Nice par un professionnel équipé. Intervention sous 48h avec devis offert.",
-    images: ["https://fuitepiscinenice-expert.fr/images/fuite-piscine-nice.webp"],
+      "Détection de fuite piscine à Saint-Tropez, sans vider le bassin. Devis gratuit sous 24h, rapport technique sous 48h.",
+    images: ["https://fuitepiscinesainttropez.fr/images/fuite-piscine-st-tropez.webp"],
   },
 };
 
-// service page 
-const page = () => {
-    return (
-        <>
-            <Head>
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify({
-                            "@context": "https://schema.org",
-                            "@type": "LocalBusiness",
-                            name: "fuite piscine nice Expert",
-                            image: "https://fuitepiscinenice-expert.fr/images/detection-fuite-piscine-nice.webp",
-                            "@id": "https://fuitepiscinenice-expert.fr/",
-                            url: "https://fuitepiscinenice-expert.fr/",
-                            telephone: "+33647572021",
-                            address: {
-                                "@type": "PostalAddress",
-                                streetAddress: "12 Rue de France",
-                                addressLocality: "Nice",
-                                postalCode: "06000",
-                                addressCountry: "FR",
-                            },
-                            openingHoursSpecification: [
-                                {
-                                    "@type": "OpeningHoursSpecification",
-                                    dayOfWeek: [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Friday",
-                                        "Saturday",
-                                        "Sunday",
-                                    ],
-                                    opens: "08:00",
-                                    closes: "20:00",
-                                },
-                            ],
-                            sameAs: [],
-                        }),
-                    }}
-                />
-            </Head>
-            <LocalBusinessSchema />
+export default function PageSaintTropez() {
+  const ldData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Fuite Piscine Expert – Saint-Tropez",
+    url: "https://fuitepiscinesainttropez.fr/services/recherche-fuite-piscine-saint-tropez",
+    telephone: "+33756935200",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Place des Lices",
+      addressLocality: "Saint-Tropez",
+      postalCode: "83990",
+      addressCountry: "FR",
+    },
+    areaServed: "Golfe de Saint-Tropez, Ramatuelle, Gassin, Sainte-Maxime",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+        ],
+        opens: "08:00",
+        closes: "20:00",
+      },
+    ],
+    image: "https://fuitepiscinesainttropez.fr/images/fuite-piscine-st-tropez.webp",
+  };
 
-            <main className="bg-white text-[#222626] px-16 max-sm:px-6 ">
-                <HeroSection
-                    title='Nos Services'
-                />
-                <PlumbingIntro />
-                <ServicesSection />
-                <ContactSection />
-                <Testimonials />
-            </main>
-        </>
-    )
+  return (
+    <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ldData) }}
+        />
+      </Head>
+      <main className="bg-white text-gray-900   mx-auto">
+        <HeroSection subtitle={""} title="Recherche de fuite piscine à Saint-Tropez – Service local, rapide et non destructif" />
+        <section className="px-6 md:px-16  max-w-7xl">
+          <PlumbingIntro />
+        </section>
+
+        <section className="mt-8 px-6 md:px-16  max-w-7xl">
+          <h2 className="text-2xl font-semibold mb-4">Pourquoi nous choisir à Saint-Tropez ?</h2>
+          <p className="mb-4 text-gray-700">
+            Nous intervenons rapidement dans tout le Golfe de Saint-Tropez (Ramatuelle, Pampelonne, Gassin), en utilisant des techniques avancées comme le gaz traceur, la caméra thermique ou la mise sous pression pour détecter les fuites sans casser votre bassin – comme l’attestent les spécialistes du secteur.
+          </p>
+          <ul className="list-disc pl-5 space-y-2 text-gray-800">
+            <li>Devis personnalisé sous 24 h, rapport illustré sous 48 h — classique des pros de la région.</li>
+            <li>Spécialistes des piscines de prestige sur Pampelonne et le Vieux-Port.</li>
+            <li>Intervention rapide pendant la saison, y compris les week-ends.</li>
+            <li>Technologie non destructive pour éviter tout vandalisme à votre bassin.</li>
+          </ul>
+        </section>
+
+        <div className="mt-8 text-center px-6 md:px-16">
+          <a
+            href="tel:+33756935200"
+            className="bg-[#1E3A8A] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#2563EB] transition"
+          >
+            Appelez Saint-Tropez – Devis gratuit
+          </a>
+        </div>
+        <section className="px-6 md:px-16  max-w-7xl">
+          <Services />
+        </section>
+        <section className="px-6 md:px-16  max-w-7xl">
+          <Contact />
+        </section>
+        <section className="px-6 md:px-16  max-w-7xl">
+          <Testimonials />
+        </section>
+      </main>
+    </>
+  );
 }
-
-export default page

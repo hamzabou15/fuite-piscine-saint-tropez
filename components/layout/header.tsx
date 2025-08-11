@@ -9,100 +9,139 @@ import {
     NavigationMenuContent,
     NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
-import { Phone, Search, Menu } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Phone, Menu } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import { services } from "@/lib/service";
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    const services = [
-        { title: "Recherche de fuite piscine à Nice", href: "/recherche-de-fuite-piscine-nice" },
-        { title: "Diagnostic avant rénovation", href: "/services/diagnostic-avant-renovation" },
-        { title: "Chemisage canalisation piscine", href: "/services/chemisage-canalisation-piscine" },
-        { title: "Inspection vidéo et électro‑acoustique", href: "/services/inspection-video-electroacoustique" },
-        { title: "Test pression canalisations piscine", href: "/services/test-pression-canalisations" },
-        { title: "Détection fluorescéine / gaz traceur", href: "/services/detection-fluoresceine-gaz" },
-        { title: "Réparation sans casse immédiate", href: "/services/reparation-sans-casse" },
-        { title: "Devis sous 24h & rapport 48h", href: "/services/devis-rapport" },
-    ];
-
     return (
-        <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
+        <header className="sticky top-0 z-50 bg-white border-b shadow-md">
             <div className="max-w-6xl mx-auto px-16 py-3 flex items-center justify-between max-md:px-6">
-                <Link href="/">
-                    <Image src="/images/logo-fuites-piscine.png" alt="Fuite Piscine Expert Nice" width={200} height={50} className="h-[70px] object-cover" />
+                {/* Logo */}
+                <Link href="/" className="p-0">
+                    <Image
+                        src="/images/logo-fuites-piscine-saint-tropez.png"
+                        alt="Fuite Piscine Expert Saint Tropez"
+                        width={300}
+                        height={70}
+                        className=" w-[150px] h-[70px]  object-cover"
+                    />
                 </Link>
 
+                {/* Menu Desktop */}
                 <NavigationMenu className="hidden md:flex">
-                    <NavigationMenuList className="flex gap-8 text-sm font-medium text-[#1b1e3f]">
+                    <NavigationMenuList className="flex gap-10 text-sm font-semibold text-[#1E3A8A]">
                         <NavigationMenuItem>
                             <NavigationMenuLink asChild>
-                                <Link href="/">Accueil</Link>
+                                <Link
+                                    href="/"
+                                    className="transition-colors hover:text-[#F59E0B] focus:outline-none focus:ring-2 focus:ring-[#F59E0B]"
+                                >
+                                    Accueil
+                                </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
+
                         <NavigationMenuItem>
-                            <NavigationMenuTrigger>
-                                Services
+                            <NavigationMenuTrigger className="transition-colors hover:text-[#F59E0B] font-semibold text-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-[#F59E0B]">
+                                <Link
+                                    href="/services"
+                                    className="transition-colors hover:text-[#F59E0B] focus:outline-none focus:ring-2 focus:ring-[#F59E0B]"
+                                >  Services</Link>
                             </NavigationMenuTrigger>
-                            <NavigationMenuContent className="bg-[#1b1e3f] text-white rounded-sm shadow-lg p-4 grid gap-2" style={{ width: "320px" }}>
+                            <NavigationMenuContent
+                                className="bg-[#1E3A8A] text-white rounded-md shadow-lg p-5 grid gap-3"
+                                style={{ width: "320px" }}
+                            >
                                 {services.map((item) => (
                                     <NavigationMenuLink
-                                        key={item.href}
+                                        key={item.link}
                                         asChild
-                                        className="block px-3 py-2 text-sm hover:bg-[#02BAD6] hover:text-white rounded-sm"
+                                        className="block px-4 py-2 rounded-md text-sm text-[#1E3A8A] bg-white hover:bg-[#F59E0B] hover:text-[#1E3A8A] transition-colors"
                                     >
-                                        <Link href={item.href}>{item.title}</Link>
+                                        <Link href={item.link}>{item.title}</Link>
                                     </NavigationMenuLink>
                                 ))}
                             </NavigationMenuContent>
                         </NavigationMenuItem>
+
                         <NavigationMenuItem>
                             <NavigationMenuLink asChild>
-                                <Link href="/a-propos">À propos</Link>
+                                <Link
+                                    href="/a-propos"
+                                    className="transition-colors hover:text-[#F59E0B] focus:outline-none focus:ring-2 focus:ring-[#F59E0B]"
+                                >
+                                    À propos
+                                </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
+
                         <NavigationMenuItem>
                             <NavigationMenuLink asChild>
-                                <Link href="/contact">Contact</Link>
+                                <Link
+                                    href="/contact"
+                                    className="transition-colors hover:text-[#F59E0B] focus:outline-none focus:ring-2 focus:ring-[#F59E0B]"
+                                >
+                                    Contact
+                                </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
 
-                <div className="hidden md:flex items-center gap-4">
-                    <Link href="/recherche-de-fuite-piscine-nice" className="text-sm text-[#02BAD6] font-medium hover:underline">
+                {/* Contact + tel desktop */}
+                <div className="hidden md:flex items-center gap-5">
+                    <Link
+                        href="/recherche-de-fuite-piscine-saint-tropez"
+                        className="text-sm font-semibold text-[#F59E0B] hover:underline"
+                    >
                         Recherche fuite piscine
                     </Link>
-                    <Phone className="w-4 h-4 text-[#02BAD6]" />
-                    <a href="tel:+33647572021" className="text-sm text-[#02BAD6] font-medium">
+                    <Phone className="w-5 h-5 text-[#F59E0B]" />
+                    <a
+                        href="tel:+33647572021"
+                        className="text-sm font-semibold text-[#F59E0B] hover:underline"
+                    >
                         +33 647 57 20 21
                     </a>
                 </div>
 
+                {/* Hamburger mobile */}
                 <div className="md:hidden">
-                    <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                        <Menu className="text-[#02BAD6] w-6 h-6" />
+                    <button
+                        aria-label="Toggle menu"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="text-[#F59E0B] w-7 h-7 focus:outline-none focus:ring-2 focus:ring-[#F59E0B] rounded"
+                    >
+                        <Menu />
                     </button>
                 </div>
             </div>
 
-            {/* MENU MOBILE */}
+            {/* Mobile menu */}
             {mobileMenuOpen && (
-                <div className="md:hidden bg-white border-t text-sm font-medium px-4 py-4 space-y-3">
-                    <Link href="/" className="block text-[#1b1e3f] hover:text-[#02BAD6]" onClick={() => setMobileMenuOpen(false)}>
+                <nav className="md:hidden bg-white border-t px-5 py-5 space-y-5 shadow-lg">
+                    <Link
+                        href="/"
+                        className="block text-[#1E3A8A] font-semibold text-base hover:text-[#F59E0B]"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
                         Accueil
                     </Link>
 
                     <details className="group">
-                        <summary className="cursor-pointer text-[#1b1e3f] hover:text-[#02BAD6]">Services</summary>
-                        <div className="mt-2 pl-4 space-y-2">
+                        <summary className="cursor-pointer font-semibold text-[#1E3A8A] hover:text-[#F59E0B]">
+                            Services
+                        </summary>
+                        <div className="mt-2 pl-5 flex flex-col gap-2">
                             {services.map((item) => (
                                 <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className="block text-[#1b1e3f] hover:text-[#02BAD6]"
+                                    key={item.link}
+                                    href={item.link}
+                                    className="text-[#1E3A8A] hover:text-[#F59E0B]"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     {item.title}
@@ -111,20 +150,31 @@ export default function Header() {
                         </div>
                     </details>
 
-                    <Link href="/a-propos" className="block text-[#1b1e3f] hover:text-[#02BAD6]" onClick={() => setMobileMenuOpen(false)}>
+                    <Link
+                        href="/a-propos"
+                        className="block text-[#1E3A8A] font-semibold text-base hover:text-[#F59E0B]"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
                         À propos
                     </Link>
-                    <Link href="/contact" className="block text-[#1b1e3f] hover:text-[#02BAD6]" onClick={() => setMobileMenuOpen(false)}>
+                    <Link
+                        href="/contact"
+                        className="block text-[#1E3A8A] font-semibold text-base hover:text-[#F59E0B]"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
                         Contact
                     </Link>
 
-                    <div className="flex items-center gap-2 pt-4 border-t">
-                        <Phone className="w-4 h-4 text-[#02BAD6]" />
-                        <a href="tel:+33647572021" className="text-sm text-[#02BAD6] font-medium">
+                    <div className="flex items-center gap-3 pt-5 border-t">
+                        <Phone className="w-5 h-5 text-[#F59E0B]" />
+                        <a
+                            href="tel:+33647572021"
+                            className="text-[#F59E0B] font-semibold text-base hover:underline"
+                        >
                             +33 647 57 20 21
                         </a>
                     </div>
-                </div>
+                </nav>
             )}
         </header>
     );

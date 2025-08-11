@@ -6,26 +6,26 @@ import ProjectSection from "@/components/home/ProjectSection";
 import ServiceSection from "@/components/home/ServiceSection";
 import Testimonials from "@/components/Testimonials";
 import StatsCard from "@/components/StatsCard";
-import KeyPointsSection from "@/components/recherche-fuite-piscine-nice/KeyPointSection";
+import KeyPointsSection from "@/components/recherche-fuite-piscine-saint-tropez/KeyPointSection";
 import SchemaLocalBusiness from "@/components/SEO/LocalBusiness";
 
 export const metadata = {
-  title: "Recherche fuite piscine à Nice – Expert technicien local sans casse",
+  title: "Recherche fuite piscine à Saint Tropez – Expert technicien local sans casse",
   description:
     "Technicien spécialisé en recherche de fuite piscine sur Nice. Intervention rapide, sans destruction. Fuite piscine liner, coque ou canalisation – rapport complet en 48h.",
   keywords:
     "recherche fuite piscine Nice, fuite piscine sur Nice, technicien fuite piscine Nice, détection fuite piscine, fuite liner, fuite coque piscine, fuite canalisation",
   robots: "index, follow",
-  canonical: "https://fuitepiscinenice-expert.fr",
+  canonical: "https://fuitepiscinesainttropez.fr",
   openGraph: {
-    title: "Recherche de fuite piscine à Nice – Intervention sans destruction",
+    title: "Recherche de fuite piscine à Saint Tropez – Intervention sans destruction",
     description:
       "Technicien expert en détection de fuite piscine sur Nice : liner, coque, canalisation. Localisation rapide, rapport détaillé avec photos. Sans vidange.",
-    url: "https://fuitepiscinenice-expert.fr",
+    url: "https://fuitepiscinesainttropez.fr",
     siteName: "Fuite Piscine Nice Expert",
     images: [
       {
-        url: "https://fuitepiscinenice-expert.fr/images/og-fuite-piscine.jpg",
+        url: "https://fuitepiscinesainttropez.fr/images/og-fuite-piscine.jpg",
         width: 1200,
         height: 630,
         alt: "Technicien recherche fuite piscine Nice",
@@ -38,8 +38,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "Fuite piscine sur Nice – Recherche sans casse par expert",
     description:
-      "Technicien spécialisé en recherche fuite piscine à Nice. Intervention sans vidange, rapport photo sous 48h, détection liner, coque et canalisation.",
-    images: ["https://fuitepiscinenice-expert.fr/images/og-fuite-piscine.jpg"],
+      "Technicien spécialisé en recherche fuite piscine à Saint Tropez. Intervention sans vidange, rapport photo sous 48h, détection liner, coque et canalisation.",
+    images: ["https://fuitepiscinesainttropez.fr/images/og-fuite-piscine.jpg"],
   },
 };
 

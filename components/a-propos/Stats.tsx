@@ -14,8 +14,8 @@ const StatsCard = () => {
     return (
         <section
             className='w-full h-auto py-12 xl:max-w-[1300px] m-auto'
-            id="chiffres-plomberie-nice"
-            aria-label="Statistiques sur les interventions de plomberie à Nice"
+            id="chiffres-plomberie-saint-tropez"
+            aria-label="Statistiques sur les interventions de plomberie à Saint Tropez"
         >
             <div className='flex items-start justify-between max-lg:flex-wrap max-lg:gap-y-6'>
                 {stats.map((stat, index) => (

@@ -1,101 +1,149 @@
-'use client';
+// components/contact/Form.tsx
+"use client";
+import React, { useState } from "react";
 
-import React from 'react';
-import Head from 'next/head';
-import { useForm, ValidationError } from '@formspree/react';
 
-const ContactForm = () => {
-    const [state, handleSubmit] = useForm('mkgzrydn');
+/**
+ * Remplace `FORMSPREE_ENDPOINT` par ton ID Formspree (ou un endpoint API).
+ * Ex: https://formspree.io/f/xxxxxxx  OR leave as is to edit.
+ */
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mrblronp";
 
-    return (
-        <>
-            <Head>
-                <title>Contact Fuite Piscine Expert à Nice – Demandez un diagnostic gratuit</title>
-                <meta
-                    name="description"
-                    content="Besoin de localiser une fuite sur votre piscine à Nice ? Contactez Fuite Piscine Expert pour une intervention rapide et non destructive. Réponse sous 24h."
-                />
-            </Head>
+export default function ContactForm() {
+  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<null | { ok: boolean; message: string }>(null);
 
-            <section
-                id="contact-piscine-nice"
-                aria-label="Formulaire de contact pour recherche de fuite piscine à Nice"
-                className="w-full bg-white py-20 px-8 md:px-8"
-            >
-                <div className="max-w-3xl mx-auto text-center mb-12">
-                    <p className="text-[14px] font-semibold text-[#02BAD6] uppercase tracking-[7px]">
-                        Contact express
-                    </p>
-                    <h2 className="text-[40px] font-bold tracking-[-1.5px] text-[#1b1e3f] max-lg:text-4xl max-md:text-3xl">
-                        Obtenez votre diagnostic fuite gratuit
-                    </h2>
-                    <p className="text-[16px] text-[#2E2937BF] mt-4 font-light">
-                        Suspectez-vous une fuite dans votre piscine ? Décrivez-nous votre situation et un expert vous recontacte sous 24h avec une solution adaptée.
-                    </p>
-                </div>
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSending(true);
+    setStatus(null);
 
-                {state.succeeded ? (
-                    <p className="text-center text-green-600 font-semibold text-lg">
-                        Merci pour votre demande. Un expert vous contactera très rapidement.
-                    </p>
-                ) : (
-                    <form
-                        onSubmit={handleSubmit}
-                        className="max-w-3xl mx-auto flex flex-col gap-6 text-[#1b1e3f]"
-                    >
-                        <input
-                            type="hidden"
-                            name="_subject"
-                            value="Nouvelle demande – Fuite Piscine Expert à Nice"
-                        />
-                        <div className="flex flex-col md:flex-row gap-6">
-                            <input
-                                type="text"
-                                name="name"
-                                required
-                                placeholder="Votre nom complet"
-                                className="w-full border border-gray-300 px-5 py-4 text-sm rounded focus:outline-none focus:ring-2 focus:ring-[#02BAD6]"
-                            />
-                            <input
-                                type="email"
-                                name="email"
-                                required
-                                placeholder="Votre adresse email"
-                                className="w-full border border-gray-300 px-5 py-4 text-sm rounded focus:outline-none focus:ring-2 focus:ring-[#02BAD6]"
-                            />
-                        </div>
-                        <ValidationError field="email" prefix="Email" errors={state.errors} />
+    const form = e.currentTarget as HTMLFormElement;
+    const formData = new FormData(form);
 
-                        <input
-                            type="tel"
-                            name="phone"
-                            required
-                            placeholder="Votre numéro de téléphone"
-                            className="w-full border border-gray-300 px-5 py-4 text-sm rounded focus:outline-none focus:ring-2 focus:ring-[#02BAD6]"
-                        />
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
 
-                        <textarea
-                            name="message"
-                            required
-                            rows={6}
-                            placeholder="Décrivez la fuite suspectée (perte d’eau, structure, canalisation, etc.)"
-                            className="w-full border border-gray-300 px-5 py-4 text-sm rounded resize-none focus:outline-none focus:ring-2 focus:ring-[#02BAD6]"
-                        ></textarea>
-                        <ValidationError field="message" prefix="Message" errors={state.errors} />
+      if (res.ok) {
+        setStatus({ ok: true, message: "Merci — votre demande a bien été envoyée. Nous répondons sous 24h." });
+        form.reset();
+      } else {
+        const json = await res.json().catch(() => null);
+        setStatus({
+          ok: false,
+          message: json?.error || "Une erreur est survenue, veuillez réessayer plus tard.",
+        });
+      }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (err) {
+      setStatus({ ok: false, message: "Erreur réseau — veuillez réessayer." });
+    } finally {
+      setSending(false);
+    }
+  }
 
-                        <div className="flex justify-center mt-4">
-                            <button
-                                type="submit"
-                                className="mt-4 w-fit px-6 py-2 bg-[#02BAD6] text-white font-semibold  hover:bg-[#007994] transition col-span-2"
-                            >
-                                Envoyer ma demande
-                            </button>
-                        </div>
-                    </form>
-                )}
-            </section>
-        </>
-    );
-};
+  return (
+    <div>
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold text-[var(--fg)]">Demandez un diagnostic gratuit</h2>
+        <p className="text-sm text-[var(--muted)]">Décrivez le problème : nous vous recontactons sous 24h.</p>
+      </div>
 
-export default ContactForm;
+      <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4">
+        <input type="hidden" name="_subject" value="Nouvelle demande - Fuite Piscine Saint-Tropez" />
+        {/* spam honeypot */}
+        <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
+
+        <label className="sr-only" htmlFor="name">Nom complet</label>
+        <input
+          id="name"
+          name="name"
+          required
+          placeholder="Nom complet"
+          className="w-full border border-gray-200 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent-alt)]"
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label className="sr-only" htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="Email"
+            className="w-full border border-gray-200 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent-alt)]"
+          />
+
+          <label className="sr-only" htmlFor="phone">Téléphone</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            placeholder="Téléphone"
+            className="w-full border border-gray-200 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent-alt)]"
+          />
+        </div>
+
+        <label className="sr-only" htmlFor="service">Type d&#39;intervention</label>
+        <select
+          id="service"
+          name="service"
+          required
+          className="w-full border border-gray-200 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent-alt)]"
+        >
+          <option value="">Sélectionnez le besoin</option>
+          <option>Recherche de fuite piscine (liner / coque)</option>
+          <option>Test pression / canalisations</option>
+          <option>Inspection vidéo / électro-acoustique</option>
+          <option>Devis / rapport</option>
+          <option>Autre</option>
+        </select>
+
+        <label className="sr-only" htmlFor="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows={5}
+          required
+          placeholder="Décrivez la fuite suspectée (ex : baisse niveau, emplacement, travaux récents...)"
+          className="w-full border border-gray-200 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent-alt)] resize-none"
+        />
+
+        <div className="flex items-center gap-4">
+          <button
+            type="submit"
+            disabled={sending}
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-[var(--accent)] text-[var(--fg)] font-semibold hover:brightness-95 transition"
+          >
+            {sending ? "Envoi..." : "Envoyer ma demande"}
+          </button>
+
+          <a
+            href="tel:+33756935200"
+            className="inline-flex items-center gap-2 px-4 py-3 rounded-lg border border-[var(--brand-500)] text-[var(--brand-500)] font-semibold hover:bg-[var(--bg-light)]"
+          >
+            Appeler: +33 7 56 93 52 00
+          </a>
+        </div>
+
+        {status && (
+          <div
+            role="status"
+            className={`mt-3 rounded-md px-4 py-3 text-sm ${status.ok ? "bg-green-50 text-green-800" : "bg-red-50 text-red-800"}`}
+          >
+            {status.message}
+          </div>
+        )}
+
+        <p className="text-xs text-[var(--muted)] mt-4">
+          En envoyant ce formulaire vous acceptez que nous utilisions vos informations pour vous recontacter. Données traitées selon notre politique de confidentialité.
+        </p>
+      </form>
+    </div>
+  );
+}

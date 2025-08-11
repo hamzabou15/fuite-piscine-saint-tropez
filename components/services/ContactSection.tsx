@@ -1,70 +1,58 @@
-// components/ContactForm.tsx
+// components/services/ContactSaintTropez.tsx
 "use client";
+import React, { useState } from "react";
 
-import { div } from "framer-motion/client";
-import { useState } from "react";
-
-export default function ContactForm() {
+export default function Contact() {
   const [status, setStatus] = useState<string | null>(null);
+  const PHONE = "+33756935200";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const formData = new FormData(form);
+    const fd = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/xblkldyv", {
+      const res = await fetch("https://formspree.io/f/mrblronp", {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
+        body: fd,
+        headers: { Accept: "application/json" }
       });
-
-      if (response.ok) {
-        setStatus("Votre demande a bien été envoyée.");
+      if (res.ok) {
+        setStatus("Merci — votre demande a bien été envoyée. Nous vous contactons sous 24 h.");
         form.reset();
       } else {
-        setStatus("Une erreur est survenue. Veuillez réessayer.");
+        setStatus("Erreur lors de l'envoi. Essayez de nouveau ou appelez " + PHONE);
       }
-    } catch (error) {
-      console.error(error);
-      setStatus("Une erreur est survenue. Veuillez réessayer.");
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (err) {
+      setStatus("Erreur réseau. Appelez " + PHONE);
     }
   };
 
   return (
-    <div className=" p-10 max-w-6xl mx-auto ">
-      <h3 className="uppercase text-lg tracking-widest text-[#1b1e3f] font-bold mb-2">
-        Contactez-nous
-      </h3>
-      <form
-        onSubmit={handleSubmit}
-        className="grid grid-cols-1 md:grid-cols-2 gap-4"
-      >
-        <input type="hidden" name="_subject" value="Une nouvelle demande - Fuite Piscine sur Nice" />
+    <section className="py-16 bg-white">
+      <div className="max-w-4xl mx-auto px-6">
+        <h3 className="text-2xl font-semibold">Contact & Diagnostic</h3>
+        <p className="text-gray-700 mt-2">Appelez-nous ou remplissez le formulaire pour un diagnostic local à Saint-Tropez.</p>
 
-        <input type="text" name="Prénom" placeholder="Prénom" required className="border-b border-gray-300 focus:outline-none focus:border-[#13727B] py-2" />
-        <input type="text" name="Nom" placeholder="Nom" required className="border-b border-gray-300 focus:outline-none focus:border-[#13727B] py-2" />
-        <input type="email" name="Email" placeholder="Email" required className="border-b border-gray-300 focus:outline-none focus:border-[#13727B] py-2 col-span-2" />
-        <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required className="border-b border-gray-300 focus:outline-none focus:border-[#13727B] py-2 col-span-2" />
-
-        <select name="Besoin" required className="border-b border-gray-300 focus:outline-none focus:border-[#13727B] py-2 col-span-2">
-          <option value="">Sélectionnez votre besoin</option>
-          <option value="Recherche de fuite encastrée">Recherche de fuite encastrée</option>
-          <option value="Fuite plafond / mur / sol">Fuite plafond / mur / sol</option>
-          <option value="Détection fuite canalisation">Détection fuite canalisation</option>
-          <option value="Diagnostic humidité">Diagnostic humidité</option>
-          <option value="Autre intervention plomberie">Autre intervention plomberie</option>
-        </select>
-
-        <button
-          type="submit"
-          className="mt-4 mx-auto w-fit px-6 py-2 bg-[var(--color-pool-primary)] text-white font-semibold rounded hover:bg-[var(--color-pool-dark)] transition col-span-2"
-        >
-          Obtenir un diagnostic
-        </button>
-
-        {status && <p className="col-span-2 text-sm mt-2 text-[#13727B]">{status}</p>}
-      </form>
-    </div>
+        <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="hidden" name="_subject" value="Demande - Fuite Piscine Saint-Tropez" />
+          <input name="prenom" placeholder="Prénom" required className="border-b py-2 focus:outline-none" />
+          <input name="nom" placeholder="Nom" required className="border-b py-2 focus:outline-none" />
+          <input name="email" type="email" placeholder="Email" required className="col-span-2 border-b py-2 focus:outline-none" />
+          <input name="telephone" placeholder="Téléphone" required className="col-span-2 border-b py-2 focus:outline-none" />
+          <select name="besoin" required className="col-span-2 border-b py-2 focus:outline-none">
+            <option value="">Sélectionnez votre besoin</option>
+            <option>Recherche fuite piscine enterrée</option>
+            <option>Test canalisation / skimmer</option>
+            <option>Fuite liner / coque</option>
+            <option>Autre</option>
+          </select>
+          <textarea name="message" placeholder="Description (optionnel)" rows={4} className="col-span-2 border-b py-2 focus:outline-none" />
+          <button type="submit" className="col-span-2 bg-[#F59E0B] text-[#1E3A8A] px-6 py-3 rounded-md font-semibold">Obtenir un diagnostic</button>
+          {status && <p className="col-span-2 text-sm text-green-600">{status}</p>}
+        </form>
+      </div>
+    </section>
   );
 }

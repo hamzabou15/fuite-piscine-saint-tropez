@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://fuitepiscinenice-expert.fr/sitemap.xml
+Sitemap: https://fuitepiscinesainttropez.fr/sitemap.xml

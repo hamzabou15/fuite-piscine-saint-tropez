@@ -14,28 +14,28 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Fuite piscine à Nice – Détection et réparation experte | Expert",
+  title: "Fuite piscine à Saint Tropez – Détection et réparation experte | Expert",
   description:
-    "Détection de fuite piscine à Nice : intervention rapide, technologie de pointe, réparation efficace. Contactez nos spécialistes en recherche de fuite non destructive.",
+    "Détection de fuite piscine à Saint Tropez : intervention rapide, technologie de pointe, réparation efficace. Contactez nos spécialistes en recherche de fuite non destructive.",
   keywords: [
-    "fuite piscine Nice",
-    "détection fuite piscine Nice",
-    "réparation fuite piscine Nice",
-    "fuite bassin Nice",
-    "expert fuite piscine Nice",
+    "fuite piscine Saint Tropez",
+    "détection fuite piscine Saint Tropez",
+    "réparation fuite piscine Saint Tropez",
+    "fuite bassin Saint Tropez",
+    "expert fuite piscine Saint Tropez",
   ],
   openGraph: {
-    title: "Fuite piscine à Nice – Détection et réparation experte | Expert",
+    title: "Fuite piscine à Saint Tropez – Détection et réparation experte | Expert",
     description:
-      "Problème de fuite piscine à Nice ? Faites appel à notre équipe d'experts. Inspection caméra, test de pression, réparation ciblée. Service rapide et professionnel.",
-    url: "https://fuitepiscinenice-expert.fr/recherche-de-fuite-piscine-nice",
-    siteName: "Fuite Picine Nice Expert",
+      "Problème de fuite piscine à Saint Tropez ? Faites appel à notre équipe d'experts. Inspection caméra, test de pression, réparation ciblée. Service rapide et professionnel.",
+    url: "https://fuitepiscinesainttropez.fr/recherche-de-fuite-piscine-Saint-tropez",
+    siteName: "Fuite Picine Saint Tropez Expert",
     images: [
       {
-        url: "/images/fuite-piscine-nice.webp",
+        url: "/images/recherche-fuite-piscine-saint-tropez.webp",
         width: 1200,
         height: 630,
-        alt: "Détection de fuite piscine à Nice",
+        alt: "Détection de fuite piscine à Saint Tropez",
       },
     ],
     locale: "fr_FR",
