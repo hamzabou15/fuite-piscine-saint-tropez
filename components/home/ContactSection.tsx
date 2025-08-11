@@ -75,7 +75,7 @@ const ContactSection: React.FC = () => {
           <div
             className="relative bg-gradient-to-br from-[#1E3A8A]/90 to-[#2563EB]/80"
             style={{
-              backgroundImage: "url('/images/fuite-piscine-expert-saint-tropez-7.webp')",
+              backgroundImage: "url('/images/fuite-piscine-expert-saint-tropez-7.Webp')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
