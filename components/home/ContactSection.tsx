@@ -66,7 +66,6 @@ const ContactSection: React.FC = () => {
           }}
         />
       </Head>
-
       <section
         className="py-20 px-4"
         aria-label="Contactez Fuite Piscine Saint-Tropez"
