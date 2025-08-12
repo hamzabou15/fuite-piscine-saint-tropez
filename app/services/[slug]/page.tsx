@@ -74,31 +74,35 @@ export default async function ServicePage({ params }: ServicesProps) {
   const imageUrl = `https://fuitepiscinesainttropez.fr${service.image || "/images/og-fuite-piscine.jpg"}`;
 
   // JSON-LD for Service + LocalBusiness + AggregateRating
-  const jsonLdService = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    description: service.metaDescription ?? service.excerpt ?? service.description,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Fuite Piscine Saint-Tropez",
-      url: "https://fuitepiscinesainttropez.fr",
-      telephone: "+33756935200",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "10 Rue de la Plage",
-        addressLocality: "Saint-Tropez",
-        postalCode: "83990",
-        addressCountry: "FR",
-      },
+const jsonLdService = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: service.title,
+  description: service.metaDescription ?? service.excerpt ?? service.description,
+  image: imageUrl,
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Fuite Piscine Saint-Tropez",
+    url: "https://fuitepiscinesainttropez.fr",
+    telephone: "+33756935200",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "10 Rue de la Plage",
+      addressLocality: "Saint-Tropez",
+      postalCode: "83990",
+      addressCountry: "FR",
     },
-    image: imageUrl,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: String(service.rating ?? 5),
-      reviewCount: String(service.reviewCount ?? 0),
-    },
-  };
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: String(service.rating ?? 5),
+    reviewCount: String(service.reviewCount ?? 0),
+    itemReviewed: {
+      "@type": "Service",
+      name: service.title
+    }
+  }
+};
 
   const jsonLdLocalBusiness = {
     "@context": "https://schema.org",
