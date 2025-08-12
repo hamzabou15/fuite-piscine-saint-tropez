@@ -3,7 +3,7 @@ export const services = [
   {
     title: "Recherche de fuite piscine à Saint-Tropez",
     slug: "recherche-de-fuite-piscine-saint-tropez",
-    link: "/services/recherche-de-fuite-piscine-saint-tropez",
+    link: "recherche-de-fuite-piscine-saint-tropez",
     image: "/images/recherche-fuite-piscine-saint-tropez.webp",
     alt: "Recherche de fuite piscine Saint-Tropez - détection non destructive",
     excerpt:
@@ -50,7 +50,7 @@ export const services = [
   {
     title: "Inspection vidéo & électro-acoustique",
     slug: "inspection-video-electroacoustique-saint-tropez",
-    link: "/services/inspection-video-electroacoustique",
+    link: "inspection-video-electroacoustique",
     image: "/images/inspection-video-electroacoustique.webp",
     alt: "Inspection vidéo et électro-acoustique piscine Saint-Tropez",
     excerpt:
@@ -81,7 +81,7 @@ export const services = [
   {
     title: "Détection fluorescéine & gaz traceur",
     slug: "detection-fluoresceine-gaz-saint-tropez",
-    link: "/services/detection-fluoresceine-gaz",
+    link: "detection-fluoresceine-gaz",
     image: "/images/detection-fluoresceine-gaz.webp",
     alt: "Détection fluorescéine et gaz traceur Saint-Tropez",
     excerpt:
@@ -107,7 +107,7 @@ export const services = [
   {
     title: "Test de pression & repérage canalisation",
     slug: "test-pression-canalisations-saint-tropez",
-    link: "/services/test-pression-canalisations",
+    link: "test-pression-canalisations",
     image: "/images/test-pression-canalisations.webp",
     alt: "Test pression canalisations piscine Saint-Tropez",
     excerpt:
@@ -131,7 +131,7 @@ export const services = [
   {
     title: "Chemisage & réparation sans casse",
     slug: "chemisage-canalisation-saint-tropez",
-    link: "/services/chemisage-canalisation",
+    link: "chemisage-canalisation",
     image: "/images/chemisage-canalisation.webp",
     alt: "Chemisage canalisation piscine Saint-Tropez - réparation sans casse",
     excerpt:
@@ -157,7 +157,7 @@ export const services = [
   {
     title: "Réparation pièces à sceller & skimmers",
     slug: "reparation-skimmer-saint-tropez",
-    link: "/services/reparation-skimmer",
+    link: "reparation-skimmer",
     image: "/images/reparation-skimmer-saint-tropez.webp",
     alt: "Réparation skimmer piscine Saint-Tropez",
     excerpt:
@@ -183,7 +183,7 @@ export const services = [
   {
     title: "Devis 24h & rapport 48h (Saint-Tropez)",
     slug: "devis-rapport-saint-tropez",
-    link: "/services/devis-rapport",
+    link: "devis-rapport",
     image: "/images/devis-rapport-saint-tropez.webp",
     alt: "Devis rapide et rapport piscine Saint-Tropez",
     excerpt:
@@ -209,7 +209,7 @@ export const services = [
   {
     title: "Contrat maintenance & prévention (Golfe)",
     slug: "maintenance-prevention-saint-tropez",
-    link: "/services/maintenance-prevention",
+    link: "maintenance-prevention",
     image: "/images/maintenance-contrat-saint-tropez.webp",
     alt: "Contrat maintenance piscine Saint-Tropez",
     excerpt:

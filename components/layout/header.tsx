@@ -58,11 +58,11 @@ export default function Header() {
                             >
                                 {services.map((item) => (
                                     <NavigationMenuLink
-                                        key={item.link}
+                                        key={item.slug}
                                         asChild
                                         className="block px-4 py-2 rounded-md text-sm text-[#1E3A8A] bg-white hover:bg-[#F59E0B] hover:text-[#1E3A8A] transition-colors"
                                     >
-                                        <Link href={item.link}>{item.title}</Link>
+                                        <Link href={item.slug}>{item.title}</Link>
                                     </NavigationMenuLink>
                                 ))}
                             </NavigationMenuContent>

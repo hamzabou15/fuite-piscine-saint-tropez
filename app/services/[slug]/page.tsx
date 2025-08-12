@@ -16,7 +16,12 @@ interface ServicesProps {
 export async function generateMetadata({ params }: ServicesProps) {
   const { slug } = await params;
 
+  console.log("slig", slug)
+
+  console.log("services" , services)
+
   const service = services.find((s) => s.slug === slug);
+
   if (!service) {
     return {
       title: "Service - Fuite Piscine Saint-Tropez",
