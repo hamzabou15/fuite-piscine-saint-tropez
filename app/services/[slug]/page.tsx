@@ -73,7 +73,6 @@ export default async function ServicePage({ params }: ServicesProps) {
   // const canonical = `https://fuitepiscinesainttropez.fr${service.link || `/services/${service.slug}`}`;
   const imageUrl = `https://fuitepiscinesainttropez.fr${service.image || "/images/og-fuite-piscine.jpg"}`;
 
-  // JSON-LD for Service + LocalBusiness + AggregateRating
   const jsonLdService = {
     "@context": "https://schema.org",
     "@type": "Service",
