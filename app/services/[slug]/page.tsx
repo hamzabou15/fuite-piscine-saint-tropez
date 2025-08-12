@@ -95,10 +95,10 @@ const jsonLdService = {
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: String(service.rating ?? 5),
-    reviewCount: String(service.reviewCount ?? 0),
-    // NE PAS METTRE `itemReviewed` ici
+    reviewCount: String(service.reviewCount ?? 0)
   }
 };
+
 
 
 
