@@ -56,7 +56,7 @@ export default function Header() {
                                 className="bg-[#1E3A8A] text-white rounded-md shadow-lg p-5 grid gap-3"
                                 style={{ width: "320px" }}
                             >
-                                {services.map((item , index) => (
+                                {services.map((item, index) => (
                                     <NavigationMenuLink
                                         key={index}
                                         asChild
@@ -140,8 +140,7 @@ export default function Header() {
                             {services.map((item) => (
                                 <Link
                                     key={item.link}
-                                    href={item.link}
-                                    className="text-[#1E3A8A] hover:text-[#F59E0B]"
+                                    href={`/services/${item.slug}`} className="text-[#1E3A8A] hover:text-[#F59E0B]"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     {item.title}
