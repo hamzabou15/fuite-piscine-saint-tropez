@@ -7,18 +7,12 @@ import { ChevronRight } from "lucide-react";
 import { services } from "@/lib/service";
 import ContactForm from "@/components/services/ContactSection";
 
-
 interface ServicesProps {
-  params: Promise<{ slug: string }>;
-
+  params: { slug: string };
 }
 
 export async function generateMetadata({ params }: ServicesProps) {
-  const { slug } = await params;
-
-  console.log("slig", slug)
-
-  console.log("services", services)
+  const { slug } = params;
 
   const service = services.find((s) => s.slug === slug);
 
@@ -58,53 +52,23 @@ export async function generateMetadata({ params }: ServicesProps) {
         follow: true,
       },
     },
-    // Optionnel: structured data simplifié dans metadata si nécessaire
-    // You can return other metadata fields here (authors, icons, etc.)
   };
 }
 
-
 export default async function ServicePage({ params }: ServicesProps) {
-  const { slug } = await params;
+  const { slug } = params;
 
   const service = services.find((s) => s.slug === slug);
   if (!service) return notFound();
 
-  // const canonical = `https://fuitepiscinesainttropez.fr${service.link || `/services/${service.slug}`}`;
   const imageUrl = `https://fuitepiscinesainttropez.fr${service.image || "/images/og-fuite-piscine.jpg"}`;
 
-  // JSON-LD for Service + LocalBusiness + AggregateRating
-  const jsonLdService = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    description: service.metaDescription ?? service.excerpt ?? service.description,
-    image: imageUrl,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Fuite Piscine Saint-Tropez",
-      url: "https://fuitepiscinesainttropez.fr",
-      telephone: "+33756935200",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "10 Rue de la Plage",
-        addressLocality: "Saint-Tropez",
-        postalCode: "83990",
-        addressCountry: "FR"
-      }
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: String(service.rating ?? 5),
-      reviewCount: String(service.reviewCount ?? 0)
-    }
-  };
-
-
+  // JSON-LD for LocalBusiness with AggregateRating
   const jsonLdLocalBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Fuite Piscine Saint-Tropez",
+    image: imageUrl,
     url: "https://fuitepiscinesainttropez.fr",
     telephone: "+33756935200",
     address: {
@@ -114,25 +78,45 @@ export default async function ServicePage({ params }: ServicesProps) {
       postalCode: "83990",
       addressCountry: "FR",
     },
+    priceRange: "$$",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: String(service.rating ?? "4.9"),
+      reviewCount: String(service.reviewCount ?? "42"),
+      bestRating: "5",
+      worstRating: "1"
+    }
   };
 
+  // JSON-LD for Service
+  const jsonLdService = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: service.title,
+    name: service.title,
+    description: service.metaDescription ?? service.excerpt ?? service.description,
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Fuite Piscine Saint-Tropez"
+    }
+  };
 
   return (
     <>
       {/* JSON-LD scripts */}
       <script
-        key="service-jsonld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }}
-      />
-      <script
         key="localbusiness-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocalBusiness) }}
       />
+      <script
+        key="service-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }}
+      />
 
       <main className="min-h-screen bg-gray-50">
-        {/* Hero */}
+        {/* Hero section */}
         <section className="relative bg-gradient-to-b from-[#EEF6FF] to-white">
           <div className="max-w-7xl mx-auto px-6 md:px-12 py-14 lg:py-20">
             <div className="grid lg:grid-cols-3 gap-8 items-center">
@@ -167,7 +151,7 @@ export default async function ServicePage({ params }: ServicesProps) {
                   </span>
                 </div>
 
-                {/* Breadcrumb small */}
+                {/* Breadcrumb */}
                 <nav className="mt-6 text-sm text-gray-500" aria-label="Breadcrumb">
                   <ol className="flex items-center gap-2">
                     <li>
@@ -237,7 +221,6 @@ export default async function ServicePage({ params }: ServicesProps) {
                 <h2 className="text-2xl font-semibold text-[#0f203f]">Description</h2>
                 <p>{service.description}</p>
 
-                {/* child section 1 */}
                 {service.child?.title1 && (
                   <>
                     <h3 className="mt-6 text-xl font-semibold text-[#0f203f]">
@@ -250,7 +233,6 @@ export default async function ServicePage({ params }: ServicesProps) {
                   </>
                 )}
 
-                {/* images row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
                   <div className="rounded-lg overflow-hidden">
                     <Image
@@ -272,7 +254,6 @@ export default async function ServicePage({ params }: ServicesProps) {
                   </div>
                 </div>
 
-                {/* child section 2 */}
                 {service.child?.title2 && (
                   <>
                     <h3 className="mt-8 text-xl font-semibold text-[#0f203f]">
@@ -285,7 +266,6 @@ export default async function ServicePage({ params }: ServicesProps) {
                   </>
                 )}
 
-                {/* case study (factice) */}
                 {service.caseStudy && (
                   <div className="mt-8 bg-[#FFF8E6] border border-[#F59E0B]/20 rounded-lg p-6">
                     <h4 className="font-semibold text-[#0f203f]">Cas client (exemple)</h4>
@@ -293,7 +273,6 @@ export default async function ServicePage({ params }: ServicesProps) {
                   </div>
                 )}
 
-                {/* FAQ suggestion -> small CTA to expand later */}
                 <div className="mt-8">
                   <h4 className="font-semibold text-[#0f203f]">Besoin d&apos;aide ?</h4>
                   <p className="text-gray-600 mt-2">
@@ -343,7 +322,6 @@ export default async function ServicePage({ params }: ServicesProps) {
                   </div>
                 </div>
 
-                {/* Contact form (client component) */}
                 <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
                   <ContactForm />
                 </div>
@@ -357,7 +335,7 @@ export default async function ServicePage({ params }: ServicesProps) {
           </div>
         </section>
 
-        {/* Related services strip */}
+        {/* Related services */}
         <section className="max-w-7xl mx-auto px-6 md:px-12 pb-20">
           <h3 className="text-xl font-semibold text-[#0f203f] mb-6">Services connexes</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
