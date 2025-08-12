@@ -92,11 +92,11 @@ const jsonLdService = {
       addressCountry: "FR",
     },
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: String(service.rating ?? 5),
-    reviewCount: String(service.reviewCount ?? 0)
-  }
+  // aggregateRating: {
+  //   "@type": "AggregateRating",
+  //   ratingValue: String(service.rating ?? 5),
+  //   reviewCount: String(service.reviewCount ?? 0)
+  // }
 };
 
 
