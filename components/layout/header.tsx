@@ -56,13 +56,13 @@ export default function Header() {
                                 className="bg-[#1E3A8A] text-white rounded-md shadow-lg p-5 grid gap-3"
                                 style={{ width: "320px" }}
                             >
-                                {services.map((item) => (
+                                {services.map((item , index) => (
                                     <NavigationMenuLink
-                                        key={item.slug}
+                                        key={index}
                                         asChild
                                         className="block px-4 py-2 rounded-md text-sm text-[#1E3A8A] bg-white hover:bg-[#F59E0B] hover:text-[#1E3A8A] transition-colors"
                                     >
-                                        <Link href={item.slug}>{item.title}</Link>
+                                        <Link href={`/services/${item.slug}`}>{item.title}</Link>
                                     </NavigationMenuLink>
                                 ))}
                             </NavigationMenuContent>
