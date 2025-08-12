@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: ServicesProps) {
 
   console.log("slig", slug)
 
-  console.log("services" , services)
+  console.log("services", services)
 
   const service = services.find((s) => s.slug === slug);
 
@@ -78,6 +78,7 @@ export default async function ServicePage({ params }: ServicesProps) {
     "@type": "Service",
     name: service.title,
     description: service.metaDescription ?? service.excerpt ?? service.description,
+    image: imageUrl,
     provider: {
       "@type": "LocalBusiness",
       name: "Fuite Piscine Saint-Tropez",
@@ -91,13 +92,13 @@ export default async function ServicePage({ params }: ServicesProps) {
         addressCountry: "FR",
       },
     },
-    image: imageUrl,
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: String(service.rating ?? 5),
-      reviewCount: String(service.reviewCount ?? 0),
-    },
+      reviewCount: String(service.reviewCount ?? 0)
+    }
   };
+
 
   const jsonLdLocalBusiness = {
     "@context": "https://schema.org",
