@@ -2,10 +2,9 @@
 "use client";
 import React, { useState } from "react";
 
-
 /**
  * Remplace `FORMSPREE_ENDPOINT` par ton ID Formspree (ou un endpoint API).
- * Ex: https://formspree.io/f/xxxxxxx  OR leave as is to edit.
+ * Ex: https://formspree.io/f/xxxxxxx
  */
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mrblronp";
 
@@ -20,6 +19,12 @@ export default function ContactForm() {
 
     const form = e.currentTarget as HTMLFormElement;
     const formData = new FormData(form);
+
+    // Reconstruire le numéro complet au format français
+    const rawPhone = formData.get("phone") as string;
+    if (rawPhone) {
+      formData.set("phone", `+33${rawPhone}`);
+    }
 
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -38,7 +43,6 @@ export default function ContactForm() {
           message: json?.error || "Une erreur est survenue, veuillez réessayer plus tard.",
         });
       }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setStatus({ ok: false, message: "Erreur réseau — veuillez réessayer." });
     } finally {
@@ -79,14 +83,24 @@ export default function ContactForm() {
           />
 
           <label className="sr-only" htmlFor="phone">Téléphone</label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            required
-            placeholder="Téléphone"
-            className="w-full border border-gray-200 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent-alt)]"
-          />
+          <div className="flex w-full">
+            <span className="inline-flex items-center px-3 rounded-l-md border border-gray-200 bg-gray-50 text-gray-500 text-sm">
+              +33
+            </span>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              placeholder="exp: 612345678"
+              pattern="\d{9}"
+              maxLength={9}
+              onInput={(e) => {
+                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '');
+              }}
+              className="w-full border border-gray-200 rounded-r-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent-alt)]"
+            />
+          </div>
         </div>
 
         <label className="sr-only" htmlFor="service">Type d&#39;intervention</label>
