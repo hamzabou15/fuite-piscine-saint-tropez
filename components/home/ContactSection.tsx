@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Head from "next/head";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const PHONE = "+33756935200";
 
@@ -16,12 +18,6 @@ const ContactSection: React.FC = () => {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-
-    // 🔹 Reconstruire le numéro complet
-    const rawPhone = formData.get("telephone") as string;
-    if (rawPhone) {
-      formData.set("telephone", `+33${rawPhone}`);
-    }
 
     try {
       const response = await fetch("https://formspree.io/f/mrblronp", {
@@ -59,7 +55,6 @@ const ContactSection: React.FC = () => {
   return (
     <>
       <Head>
-        {/* ContactPoint JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -205,26 +200,22 @@ const ContactSection: React.FC = () => {
                 className="col-span-2 border-b border-gray-300 focus:outline-none focus:border-[#1E3A8A] py-2"
               />
 
-              {/* Téléphone avec +33 fixe */}
-              <div className="col-span-2 flex border-b border-gray-300 focus-within:border-[#1E3A8A]">
-                <span className="inline-flex items-center px-3 text-gray-500 text-sm">
-                  +33
-                </span>
-                <input
-                  id="telephone"
-                  name="telephone"
-                  type="tel"
-                  placeholder="693788807"
-                  required
-                  maxLength={9}
-                  pattern="\d{9}"
-                  onInput={(e) => {
-                    e.currentTarget.value = e.currentTarget.value.replace(
-                      /\D/g,
-                      ""
-                    );
+              {/* Téléphone avec tous pays */}
+              <div className="col-span-2 border-b border-gray-300 focus-within:border-[#1E3A8A]">
+                <PhoneInput
+                  country={"fr"}
+                  enableSearch={true}
+                  inputProps={{
+                    name: "telephone",
+                    required: true,
                   }}
-                  className="flex-1 py-2 focus:outline-none"
+                  containerClass="w-full"
+                  inputStyle={{ border: "0px" }}
+                  inputClass="w-full py-2 pl-12 focus:outline-none border-none shadow-none border-0"
+                  buttonClass="bg-transparent border-none"
+                  dropdownClass="text-black"
+                  placeholder="Numéro de téléphone"
+
                 />
               </div>
 
@@ -257,8 +248,8 @@ const ContactSection: React.FC = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className={`mt-4 mx-auto w-fit px-6 py-3 rounded-md font-semibold col-span-2 transition ${isSubmitting
-                    ? "bg-[#D97706] text-white opacity-80"
-                    : "bg-[#F59E0B] text-[#1E3A8A] hover:bg-[#D97706]"
+                  ? "bg-[#D97706] text-white opacity-80"
+                  : "bg-[#F59E0B] text-[#1E3A8A] hover:bg-[#D97706]"
                   }`}
                 aria-live="polite"
               >

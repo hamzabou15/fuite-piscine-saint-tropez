@@ -1,16 +1,15 @@
 // components/contact/Form.tsx
 "use client";
 import React, { useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/style.css';
 
-/**
- * Remplace `FORMSPREE_ENDPOINT` par ton ID Formspree (ou un endpoint API).
- * Ex: https://formspree.io/f/xxxxxxx
- */
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mrblronp";
 
 export default function ContactForm() {
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState<null | { ok: boolean; message: string }>(null);
+  const [phone, setPhone] = useState("");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -20,11 +19,8 @@ export default function ContactForm() {
     const form = e.currentTarget as HTMLFormElement;
     const formData = new FormData(form);
 
-    // Reconstruire le numéro complet au format français
-    const rawPhone = formData.get("phone") as string;
-    if (rawPhone) {
-      formData.set("phone", `+33${rawPhone}`);
-    }
+    // Injecte le numéro complet au format international
+    formData.set("phone", phone);
 
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -36,6 +32,7 @@ export default function ContactForm() {
       if (res.ok) {
         setStatus({ ok: true, message: "Merci — votre demande a bien été envoyée. Nous répondons sous 24h." });
         form.reset();
+        setPhone("");
       } else {
         const json = await res.json().catch(() => null);
         setStatus({
@@ -62,7 +59,6 @@ export default function ContactForm() {
         {/* spam honeypot */}
         <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
 
-        <label className="sr-only" htmlFor="name">Nom complet</label>
         <input
           id="name"
           name="name"
@@ -72,7 +68,6 @@ export default function ContactForm() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <label className="sr-only" htmlFor="email">Email</label>
           <input
             id="email"
             name="email"
@@ -82,28 +77,21 @@ export default function ContactForm() {
             className="w-full border border-gray-200 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent-alt)]"
           />
 
-          <label className="sr-only" htmlFor="phone">Téléphone</label>
-          <div className="flex w-full">
-            <span className="inline-flex items-center px-3 rounded-l-md border border-gray-200 bg-gray-50 text-gray-500 text-sm">
-              +33
-            </span>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              required
-              placeholder="exp: 612345678"
-              pattern="\d{9}"
-              maxLength={9}
-              onInput={(e) => {
-                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '');
-              }}
-              className="w-full border border-gray-200 rounded-r-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent-alt)]"
-            />
-          </div>
+          <PhoneInput
+            country={"fr"}
+            value={phone}
+            onChange={(value) => setPhone(value)}
+            enableSearch={true}
+            inputProps={{
+              name: "phone",
+              required: true,
+            }}
+            containerClass="w-full h-[52px!important]"
+            inputClass="!w-full !border  h-[52px!important] pl-[50px!important] !border-gray-200 !rounded-md  !px-4 !py-3 !text-base !focus:outline-none !focus:ring-2 !focus:ring-[var(--accent-alt)]"
+            buttonClass="!border-gray-200 !bg-gray-50 mr-[70px]"
+          />
         </div>
 
-        <label className="sr-only" htmlFor="service">Type d&#39;intervention</label>
         <select
           id="service"
           name="service"
@@ -118,7 +106,6 @@ export default function ContactForm() {
           <option>Autre</option>
         </select>
 
-        <label className="sr-only" htmlFor="message">Message</label>
         <textarea
           id="message"
           name="message"
